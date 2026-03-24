@@ -1,0 +1,1942 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lumière — Photographes, Vidéastes & Créatifs en France</title>
+<meta name="description" content="Le réseau des photographes, vidéastes, maquilleurs, wedding planners, musiciens et tous les créatifs en France. Profils, portfolios, agenda et mise en relation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cr:#F7F3EC;--cr2:#EFE9DE;--cr3:#E5DDCE;--cr4:#D9CFBD;
+  --ink:#2A2520;--ink2:#5C534A;--ink3:#8C8078;--ink4:#B8AFA6;
+  --terra:#8B4F2A;--terra2:#A66240;--terra3:#C4896A;--trbg:rgba(139,79,42,.07);
+  --olive:#4A5A35;--olbg:rgba(74,90,53,.08);
+  --lav:#5A5878;--lavbg:rgba(90,88,120,.08);
+  --border:rgba(42,37,32,.1);--border2:rgba(42,37,32,.16);
+  --r:12px;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Jost',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--cr);color:var(--ink);min-height:100vh;overflow-x:hidden;}
+::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:var(--cr);}::-webkit-scrollbar-thumb{background:var(--cr4);}
+a{text-decoration:none;color:inherit;}
+button,input,textarea,select{font-family:var(--sans);}
+img{display:block;}
+
+/* SCREENS */
+.screen{display:none;min-height:100vh;flex-direction:column;animation:fi .3s ease;}
+.screen.active{display:flex;}
+@keyframes fi{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:200;height:58px;background:rgba(247,243,236,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 32px;}
+.nav-logo{font-family:var(--serif);font-size:20px;font-weight:500;color:var(--ink);cursor:pointer;letter-spacing:.02em;}
+.nav-logo em{font-style:italic;color:var(--terra);}
+.navlinks{display:flex;align-items:center;gap:4px;}
+.nl{font-size:13px;font-weight:400;color:var(--ink3);cursor:pointer;padding:6px 12px;border-radius:6px;border:none;background:none;transition:all .18s;letter-spacing:.02em;}
+.nl:hover,.nl.on{color:var(--ink);background:var(--cr2);}
+.ncta{padding:8px 20px;border-radius:20px;font-size:13px;font-weight:500;cursor:pointer;transition:all .2s;border:none;letter-spacing:.02em;}
+.ng{background:transparent;color:var(--ink3);border:1px solid var(--border2);}
+.ng:hover{color:var(--ink);border-color:var(--ink3);}
+.ns{background:var(--terra);color:#fff;}
+.ns:hover{background:var(--terra2);}
+
+/* BTNS */
+.btn{display:inline-flex;align-items:center;gap:7px;cursor:pointer;border:none;transition:all .2s;font-family:var(--sans);font-weight:500;letter-spacing:.02em;}
+.bs{background:var(--ink);color:var(--cr);padding:13px 28px;font-size:14px;border-radius:var(--r);}
+.bs:hover{background:var(--ink2);}
+.bg{background:transparent;color:var(--ink);padding:12px 26px;font-size:14px;border-radius:var(--r);border:1px solid var(--border2);}
+.bg:hover{background:var(--cr2);border-color:var(--ink3);}
+.bt{background:var(--terra);color:#fff;padding:12px 26px;font-size:14px;border-radius:var(--r);}
+.bt:hover{background:var(--terra2);}
+.bsm{padding:8px 18px!important;font-size:13px!important;border-radius:8px!important;}
+.bxs{padding:6px 14px!important;font-size:12px!important;border-radius:7px!important;}
+
+/* FORMS */
+.fg{margin-bottom:16px;}
+.fl{display:block;font-size:11px;font-weight:500;color:var(--ink3);margin-bottom:6px;letter-spacing:.06em;text-transform:uppercase;}
+.fi{width:100%;padding:12px 15px;background:#fff;border:1px solid var(--border2);border-radius:10px;font-size:14px;color:var(--ink);outline:none;transition:border .18s;}
+.fi:focus{border-color:var(--terra);}
+.fi::placeholder{color:var(--ink4);}
+.fta{resize:vertical;min-height:80px;}
+.fsel{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%238C8078'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;cursor:pointer;}
+.fsel option{background:#fff;}
+
+/* CHIPS */
+.chips{display:flex;flex-wrap:wrap;gap:7px;}
+.chip{padding:7px 15px;background:#fff;border:1px solid var(--border2);border-radius:20px;font-size:12px;color:var(--ink3);cursor:pointer;transition:all .18s;font-family:var(--sans);}
+.chip:hover{border-color:var(--terra);color:var(--terra);}
+.chip.on{background:var(--ink);color:var(--cr);border-color:var(--ink);}
+
+/* OVERLAY */
+.overlay{display:none;position:fixed;inset:0;background:rgba(42,37,32,.6);z-index:400;align-items:center;justify-content:center;backdrop-filter:blur(8px);padding:20px;}
+.overlay.open{display:flex;}
+.modal{background:var(--cr);border-radius:16px;width:100%;max-width:680px;max-height:92vh;overflow-y:auto;animation:mi .25s ease;}
+.mxl{max-width:820px;}
+@keyframes mi{from{opacity:0;transform:scale(.96)translateY(10px)}to{opacity:1;transform:scale(1)translateY(0)}}
+.mhd{padding:24px 26px 0;display:flex;justify-content:space-between;align-items:center;}
+.mht{font-family:var(--serif);font-size:22px;font-weight:500;}
+.mht em{font-style:italic;color:var(--terra);}
+.mxbtn{width:30px;height:30px;background:var(--cr2);border:none;border-radius:50%;color:var(--ink3);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .18s;}
+.mxbtn:hover{background:var(--cr3);color:var(--ink);}
+.mbd{padding:20px 26px 28px;}
+
+/* TOAST */
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%)translateY(60px);background:var(--ink);color:var(--cr);padding:11px 20px;border-radius:10px;font-size:13px;z-index:600;transition:transform .3s ease;pointer-events:none;white-space:nowrap;}
+.toast.on{transform:translateX(-50%)translateY(0);}
+
+/* SECTION HELPERS */
+.sec{padding:72px 32px;max-width:1160px;margin:0 auto;width:100%;}
+.sey{font-size:11px;font-weight:500;color:var(--terra);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;}
+.sh2{font-family:var(--serif);font-size:clamp(28px,4vw,42px);font-weight:500;color:var(--ink);margin-bottom:8px;letter-spacing:-.02em;line-height:1.1;}
+.sh2 em{font-style:italic;}
+.ssub{font-size:15px;color:var(--ink3);max-width:420px;line-height:1.7;margin-bottom:36px;font-weight:300;}
+.div{height:1px;background:var(--border);margin:0 32px;}
+.tag{display:inline-block;padding:3px 9px;background:var(--cr2);border-radius:4px;font-size:11px;color:var(--ink3);font-weight:500;}
+
+/* ════════════ LANDING ════════════ */
+#landing{background:var(--cr);}
+.hero{padding:96px 32px 80px;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 900px 500px at 50% 0,rgba(139,79,42,.06) 0%,transparent 70%);}
+.h-pill{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:500;color:var(--ink3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:24px;}
+.h-dot{width:5px;height:5px;border-radius:50%;background:var(--terra);}
+.h-t{font-family:var(--serif);font-size:clamp(42px,7vw,82px);font-weight:500;line-height:.97;letter-spacing:-.02em;color:var(--ink);margin-bottom:22px;}
+.h-t em{font-style:italic;color:var(--terra);}
+.h-sub{font-size:16px;color:var(--ink3);max-width:480px;margin:0 auto 40px;line-height:1.7;font-weight:300;}
+.hero-btn-area{position:relative;z-index:10;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:60px;}
+.h-stats{display:inline-flex;border:1px solid var(--border2);border-radius:12px;overflow:hidden;background:#fff;}
+.hst{padding:16px 28px;text-align:center;border-right:1px solid var(--border);}
+.hst:last-child{border-right:none;}
+.hst-n{font-family:var(--serif);font-size:26px;font-weight:500;color:var(--ink);}
+.hst-l{font-size:11px;color:var(--ink4);margin-top:2px;letter-spacing:.05em;text-transform:uppercase;}
+.mq-wrap{border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden;padding:14px 0;background:var(--cr2);}
+.mq{display:flex;gap:24px;animation:mqa 28s linear infinite;width:max-content;}
+@keyframes mqa{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.mqi{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-size:13px;font-style:italic;color:var(--ink4);white-space:nowrap;}
+.mqs{width:3px;height:3px;border-radius:50%;background:var(--terra3);}
+
+/* Feature grid (landing) */
+.feat-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;}
+.fc{background:var(--cr);cursor:pointer;transition:background .18s;}
+.fc:hover{background:var(--cr2);}
+.fc-cv{height:200px;overflow:hidden;}
+.fc-cv img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+.fc:hover .fc-cv img{transform:scale(1.04);}
+.fc-bd{padding:16px;}
+.fc-role{font-size:11px;font-weight:500;color:var(--terra);letter-spacing:.07em;text-transform:uppercase;margin-bottom:4px;}
+.fc-name{font-family:var(--serif);font-size:18px;font-weight:500;color:var(--ink);margin-bottom:2px;}
+.fc-loc{font-size:12px;color:var(--ink4);}
+
+/* How */
+.how-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;}
+.hw-n{font-family:var(--serif);font-size:32px;font-weight:400;color:var(--cr3);margin-bottom:12px;line-height:1;}
+.hw-t{font-family:var(--serif);font-size:17px;font-weight:500;color:var(--ink);margin-bottom:7px;}
+.hw-d{font-size:13px;color:var(--ink3);line-height:1.65;font-weight:300;}
+
+/* Blog preview */
+.blog-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:28px;}
+.bc{cursor:pointer;border-bottom:1px solid var(--border);padding-bottom:24px;transition:opacity .18s;}
+.bc:hover{opacity:.8;}
+.bc-img{height:180px;overflow:hidden;border-radius:var(--r);margin-bottom:16px;background:var(--cr3);}
+.bc-img img{width:100%;height:100%;object-fit:cover;}
+.bc-cat{font-size:11px;font-weight:500;color:var(--terra);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;}
+.bc-title{font-family:var(--serif);font-size:19px;font-weight:500;color:var(--ink);line-height:1.25;margin-bottom:8px;}
+.bc-exc{font-size:13px;color:var(--ink3);line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.bc-date{font-size:11px;color:var(--ink4);margin-top:10px;}
+
+/* Pro section */
+.pro-wrap{background:var(--cr2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+
+/* Footer */
+.footer{border-top:1px solid var(--border);padding:48px 32px;background:var(--cr2);}
+.fi-grid{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:48px;}
+.ft-logo{font-family:var(--serif);font-size:22px;font-weight:500;margin-bottom:10px;}
+.ft-logo em{font-style:italic;color:var(--terra);}
+.ft-desc{font-size:13px;color:var(--ink3);line-height:1.7;max-width:260px;font-weight:300;}
+.ft-ct{font-size:11px;font-weight:500;color:var(--ink3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px;}
+.ft-links{display:flex;flex-direction:column;gap:9px;}
+.ft-l{font-size:13px;color:var(--ink4);cursor:pointer;transition:color .18s;font-weight:300;}
+.ft-l:hover{color:var(--terra);}
+.ft-bottom{max-width:1160px;margin:28px auto 0;padding-top:20px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+.ft-copy{font-size:12px;color:var(--ink4);}
+
+/* ════════════ ANNUAIRE ════════════ */
+#annuaire{background:var(--cr);}
+.dir-hd{padding:48px 32px 36px;border-bottom:1px solid var(--border);}
+.dir-hd-in{max-width:1160px;margin:0 auto;}
+.dir-h1{font-family:var(--serif);font-size:clamp(30px,5vw,52px);font-weight:500;color:var(--ink);margin-bottom:6px;letter-spacing:-.02em;}
+.dir-h1 em{font-style:italic;color:var(--terra);}
+.sr{display:flex;gap:10px;flex-wrap:wrap;}
+.si{flex:1;min-width:180px;background:#fff;border:1px solid var(--border2);border-radius:10px;padding:11px 16px;font-size:14px;color:var(--ink);outline:none;transition:border .18s;}
+.si:focus{border-color:var(--terra);}
+.si::placeholder{color:var(--ink4);}
+.ss{padding:11px 14px;background:#fff;border:1px solid var(--border2);border-radius:10px;font-size:13px;color:var(--ink3);outline:none;cursor:pointer;min-width:140px;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%238C8078'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;}
+.ss option{background:#fff;}
+.dir-body{max-width:1160px;margin:0 auto;padding:28px 32px;}
+.dir-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px;}
+.pc{cursor:pointer;transition:all .2s;}
+.pc:hover .pc-img img{transform:scale(1.03);}
+.pc-img{height:240px;border-radius:var(--r);overflow:hidden;background:var(--cr3);margin-bottom:12px;position:relative;}
+.pc-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+.pc-badge{position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:20px;font-size:10px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:#fff;}
+.pc-avdot{position:absolute;top:10px;right:10px;width:8px;height:8px;border-radius:50%;border:2px solid var(--cr);}
+.pc-role{font-size:11px;font-weight:500;color:var(--terra);letter-spacing:.07em;text-transform:uppercase;margin-bottom:4px;}
+.pc-name{font-family:var(--serif);font-size:19px;font-weight:500;color:var(--ink);margin-bottom:3px;}
+.pc-loc{font-size:12px;color:var(--ink4);margin-bottom:8px;}
+.pc-bio{font-size:13px;color:var(--ink3);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-weight:300;}
+
+/* ════════════ PROFIL MODAL ════════════ */
+.pm-top{display:flex;gap:22px;align-items:flex-start;margin-bottom:22px;flex-wrap:wrap;}
+.pm-av{width:80px;height:80px;border-radius:50%;overflow:hidden;border:2px solid var(--cr3);flex-shrink:0;}
+.pm-av img{width:100%;height:100%;object-fit:cover;}
+.pm-name{font-family:var(--serif);font-size:24px;font-weight:500;color:var(--ink);margin-bottom:3px;}
+.pm-rl{font-size:13px;color:var(--ink3);margin-bottom:10px;}
+.pm-bio{font-size:14px;color:var(--ink2);line-height:1.7;margin-bottom:12px;font-weight:300;}
+.pm-lrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;}
+.pm-lnk{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;background:var(--cr2);border:1px solid var(--border2);border-radius:8px;font-size:12px;color:var(--ink3);text-decoration:none;transition:all .18s;font-weight:500;}
+.pm-lnk:hover{border-color:var(--terra);color:var(--terra);}
+.pm-stats{display:flex;gap:20px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:12px 0;margin-bottom:18px;}
+.pm-sn{font-family:var(--serif);font-size:18px;font-weight:500;color:var(--ink);}
+.pm-sl{font-size:11px;color:var(--ink4);letter-spacing:.05em;}
+.pm-feed{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:14px;}
+.pm-fi{aspect-ratio:1;overflow:hidden;cursor:pointer;background:var(--cr3);}
+.pm-fi img{width:100%;height:100%;object-fit:cover;transition:opacity .2s;}
+.pm-fi:hover img{opacity:.85;}
+.pm-kw{display:flex;flex-wrap:wrap;gap:5px;}
+
+/* ════════════ BLOG ════════════ */
+#blog-screen{background:var(--cr);}
+.blog-hd{padding:52px 32px 40px;border-bottom:1px solid var(--border);}
+.blog-h1{font-family:var(--serif);font-size:clamp(32px,5vw,56px);font-weight:500;color:var(--ink);letter-spacing:-.02em;line-height:1.05;}
+.blog-h1 em{font-style:italic;color:var(--terra);}
+.blog-body{max-width:1160px;margin:0 auto;padding:36px 32px;}
+.art-wrap{max-width:700px;margin:0 auto;padding:48px 32px;}
+.art-back{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--ink3);cursor:pointer;margin-bottom:32px;transition:color .18s;}
+.art-back:hover{color:var(--terra);}
+.art-cat{font-size:11px;font-weight:500;color:var(--terra);letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px;}
+.art-title{font-family:var(--serif);font-size:clamp(28px,5vw,46px);font-weight:500;color:var(--ink);letter-spacing:-.02em;line-height:1.08;margin-bottom:16px;}
+.art-meta{font-size:13px;color:var(--ink4);margin-bottom:28px;display:flex;gap:16px;flex-wrap:wrap;}
+.art-img{width:100%;height:380px;object-fit:cover;border-radius:var(--r);margin-bottom:36px;}
+.art-body{font-size:16px;color:var(--ink2);line-height:1.9;font-weight:300;}
+.art-body p{margin-bottom:22px;}
+.art-body h2{font-family:var(--serif);font-size:26px;font-weight:500;color:var(--ink);margin:36px 0 14px;letter-spacing:-.01em;}
+
+/* ════════════ INSCRIPTION — 2 ÉTAPES ════════════ */
+#inscription{background:var(--cr);}
+.reg-wrap{max-width:520px;margin:0 auto;padding:56px 32px;}
+.reg-h1{font-family:var(--serif);font-size:36px;font-weight:500;color:var(--ink);margin-bottom:6px;letter-spacing:-.02em;}
+.reg-h1 em{font-style:italic;color:var(--terra);}
+.reg-sub{font-size:14px;color:var(--ink3);margin-bottom:36px;line-height:1.65;font-weight:300;}
+.prog{display:flex;gap:4px;margin-bottom:36px;}
+.pseg{flex:1;height:2px;border-radius:1px;background:var(--cr3);transition:background .4s;}
+.pseg.done{background:var(--terra);}
+.pseg.act{background:var(--terra3);}
+.roles-g{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px;}
+.rb{background:#fff;border:1px solid var(--border2);border-radius:12px;padding:16px;cursor:pointer;transition:all .2s;text-align:left;display:flex;flex-direction:column;gap:4px;}
+.rb:hover,.rb.on{border-color:var(--terra);background:var(--trbg);}
+.rb-icon{font-size:20px;}
+.rb-n{font-size:14px;font-weight:500;color:var(--ink);}
+.rb-d{font-size:12px;color:var(--ink4);}
+.photo-g{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:8px;}
+.ps{aspect-ratio:1;background:var(--cr2);border:1px dashed var(--cr4);border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;overflow:hidden;position:relative;transition:all .2s;}
+.ps:hover{border-color:var(--terra);background:var(--trbg);}
+.ps img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;}
+.ps .ppl{font-size:18px;color:var(--ink4);}
+.ps .prm{position:absolute;top:3px;right:3px;background:rgba(42,37,32,.7);color:#fff;border:none;border-radius:50%;width:18px;height:18px;font-size:10px;cursor:pointer;display:none;align-items:center;justify-content:center;}
+.ps:hover .prm{display:flex;}
+.kw-row{display:flex;gap:7px;margin-bottom:9px;}
+.kw-list{display:flex;flex-wrap:wrap;gap:5px;}
+.kwi{display:flex;align-items:center;gap:5px;padding:5px 11px;background:var(--cr2);border:1px solid var(--border2);border-radius:7px;font-size:12px;color:var(--ink3);}
+.kwi button{background:none;border:none;color:var(--ink4);cursor:pointer;font-size:13px;line-height:1;padding:0;transition:color .18s;}
+.kwi button:hover{color:var(--ink);}
+
+/* ════════════ DASHBOARD ════════════ */
+#dashboard{background:var(--cr);}
+.dash-wrap{max-width:980px;margin:0 auto;padding:40px 32px;}
+.dash-h1{font-family:var(--serif);font-size:32px;font-weight:500;color:var(--ink);letter-spacing:-.02em;margin-bottom:4px;}
+.dash-h1 em{font-style:italic;color:var(--terra);}
+.stats-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:22px;}
+.sc{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:18px;transition:border-color .18s;}
+.sc:hover{border-color:var(--border2);}
+.sc-n{font-family:var(--serif);font-size:30px;font-weight:500;color:var(--ink);margin-bottom:4px;}
+.sc-l{font-size:11px;color:var(--ink4);font-weight:500;letter-spacing:.04em;text-transform:uppercase;}
+.db{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:22px;margin-bottom:14px;}
+.dbt{font-family:var(--serif);font-size:17px;font-weight:500;color:var(--ink);margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.mr{display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid var(--border);cursor:pointer;transition:all .18s;}
+.mr:last-child{border-bottom:none;}
+.mr:hover{background:var(--cr);border-radius:8px;padding-left:8px;padding-right:8px;}
+.mv{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;color:#fff;font-weight:600;flex-shrink:0;}
+.tg-w{display:flex;align-items:center;gap:10px;cursor:pointer;}
+.tg-t{position:relative;width:40px;height:22px;border-radius:11px;background:var(--cr3);transition:background .22s;flex-shrink:0;}
+.tg-t.on{background:var(--olive);}
+.tg-th{position:absolute;top:3px;left:3px;width:16px;height:16px;background:#fff;border-radius:50%;transition:transform .22s ease;box-shadow:0 1px 3px rgba(0,0,0,.2);}
+.tg-t.on .tg-th{transform:translateX(18px);}
+.kw-list2{display:flex;flex-wrap:wrap;gap:5px;}
+
+/* ════════════ AGENDA ════════════ */
+#agenda-screen{background:var(--cr);}
+.ag-wrap{max-width:900px;margin:0 auto;padding:40px 32px;}
+.ag-h1{font-family:var(--serif);font-size:32px;font-weight:500;color:var(--ink);letter-spacing:-.02em;margin-bottom:4px;}
+.ag-h1 em{font-style:italic;color:var(--terra);}
+.cal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;}
+.cal-month{font-family:var(--serif);font-size:22px;font-weight:500;color:var(--ink);}
+.cal-nav{width:32px;height:32px;background:var(--cr2);border:1px solid var(--border2);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:14px;transition:all .18s;}
+.cal-nav:hover{background:var(--cr3);}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-bottom:24px;}
+.cal-day-hd{text-align:center;font-size:11px;font-weight:500;color:var(--ink4);padding:8px 0;letter-spacing:.05em;}
+.cal-day{min-height:52px;border-radius:8px;padding:6px;cursor:pointer;border:1px solid transparent;transition:all .18s;position:relative;}
+.cal-day:hover{background:var(--cr2);border-color:var(--border);}
+.cal-day.today{background:var(--trbg);border-color:rgba(139,79,42,.2);}
+.cal-day.has-rdv{background:var(--olbg);border-color:rgba(74,90,53,.18);}
+.cal-day.selected{background:var(--cr2);border-color:var(--terra);}
+.cal-day.other-month{opacity:.3;}
+.cal-day-n{font-size:13px;font-weight:400;color:var(--ink2);}
+.cal-day.today .cal-day-n{font-weight:600;color:var(--terra);}
+.cal-rdv-dot{width:5px;height:5px;border-radius:50%;background:var(--olive);margin-top:4px;}
+.rdv-list{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:22px;}
+.rdv-item{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--border);}
+.rdv-item:last-child{border-bottom:none;}
+.rdv-time{font-family:var(--serif);font-size:15px;font-weight:500;color:var(--terra);min-width:52px;}
+.rdv-title{font-size:14px;font-weight:500;color:var(--ink);}
+.rdv-sub{font-size:12px;color:var(--ink4);margin-top:2px;}
+.rdv-type{font-size:11px;padding:3px 9px;border-radius:20px;font-weight:500;margin-top:5px;display:inline-block;}
+.rdv-ph{background:var(--trbg);color:var(--terra);}
+.rdv-cl{background:var(--olbg);color:var(--olive);}
+.rdv-pr{background:var(--lavbg);color:var(--lav);}
+
+/* ════════════ MESSAGERIE ════════════ */
+#messages-screen{background:var(--cr);}
+.msg-layout{display:grid;grid-template-columns:280px 1fr;height:calc(100vh - 58px);}
+.conv-list{background:#fff;border-right:1px solid var(--border);overflow-y:auto;}
+.conv-hd{padding:16px 18px;border-bottom:1px solid var(--border);font-size:11px;font-weight:500;color:var(--ink4);letter-spacing:.07em;text-transform:uppercase;}
+.ci{padding:14px 18px;border-bottom:1px solid var(--border);cursor:pointer;display:flex;gap:11px;align-items:center;transition:background .18s;}
+.ci:hover,.ci.on{background:var(--cr);}
+.ci-av{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;color:#fff;font-weight:600;flex-shrink:0;}
+.ci-name{font-size:13px;font-weight:500;color:var(--ink);}
+.ci-prev{font-size:12px;color:var(--ink4);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px;}
+.chat-win{display:flex;flex-direction:column;background:var(--cr);}
+.chat-hd{padding:14px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;background:#fff;}
+.chat-name{font-family:var(--serif);font-size:16px;font-weight:500;color:var(--ink);}
+.chat-role{font-size:12px;color:var(--ink4);}
+.chat-msgs{flex:1;overflow-y:auto;padding:22px 20px;display:flex;flex-direction:column;gap:14px;}
+.cmssg{max-width:70%;}
+.cmssg.me{align-self:flex-end;}
+.cmssg.them{align-self:flex-start;}
+.cm-b{padding:11px 15px;border-radius:14px;font-size:14px;line-height:1.55;}
+.cmssg.me .cm-b{background:var(--ink);color:var(--cr);border-radius:14px 14px 4px 14px;}
+.cmssg.them .cm-b{background:#fff;color:var(--ink);border-radius:14px 14px 14px 4px;border:1px solid var(--border);}
+.cm-time{font-size:11px;color:var(--ink4);margin-top:4px;}
+.cmssg.me .cm-time{text-align:right;}
+.chat-foot{padding:14px 20px;border-top:1px solid var(--border);display:flex;gap:9px;align-items:flex-end;background:#fff;}
+.chat-inp{flex:1;padding:11px 15px;background:var(--cr);border:1px solid var(--border2);border-radius:10px;font-size:14px;color:var(--ink);outline:none;resize:none;min-height:42px;max-height:100px;transition:border .18s;font-family:var(--sans);}
+.chat-inp:focus{border-color:var(--terra);}
+.chat-inp::placeholder{color:var(--ink4);}
+.send-btn{padding:11px 18px;background:var(--ink);color:var(--cr);border:none;border-radius:10px;font-size:14px;cursor:pointer;transition:background .18s;flex-shrink:0;}
+.send-btn:hover{background:var(--ink2);}
+.ai-btn{padding:8px 13px;background:var(--cr2);border:1px solid var(--border2);border-radius:8px;font-size:12px;color:var(--ink3);cursor:pointer;transition:all .18s;white-space:nowrap;}
+.ai-btn:hover{border-color:var(--terra);color:var(--terra);}
+.typing{display:flex;gap:3px;align-items:center;padding:11px 15px;background:#fff;border-radius:14px 14px 14px 4px;border:1px solid var(--border);width:fit-content;}
+.td{width:5px;height:5px;border-radius:50%;background:var(--ink4);animation:tda 1.2s infinite;}
+.td:nth-child(2){animation-delay:.2s;}.td:nth-child(3){animation-delay:.4s;}
+@keyframes tda{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-5px)}}
+
+/* ════════════ LÉGALES ════════════ */
+#legal-screen{background:var(--cr);}
+.lg-wrap{max-width:740px;margin:0 auto;padding:56px 32px;}
+.lg-h1{font-family:var(--serif);font-size:36px;font-weight:500;color:var(--ink);letter-spacing:-.02em;margin-bottom:6px;}
+.lg-h1 em{font-style:italic;color:var(--terra);}
+.lg-tabs{display:flex;gap:4px;margin-bottom:36px;border-bottom:1px solid var(--border);padding-bottom:16px;}
+.lt{padding:7px 15px;border-radius:7px;font-size:13px;font-weight:500;color:var(--ink3);cursor:pointer;border:none;background:none;transition:all .18s;font-family:var(--sans);}
+.lt.on{background:var(--cr2);color:var(--ink);}
+.lg-body{font-size:15px;color:var(--ink2);line-height:1.9;font-weight:300;}
+.lg-body h2{font-family:var(--serif);font-size:24px;font-weight:500;color:var(--ink);margin:36px 0 12px;letter-spacing:-.01em;}
+.lg-body h3{font-size:16px;font-weight:500;color:var(--ink);margin:22px 0 8px;}
+.lg-body p{margin-bottom:16px;}
+.lg-body ul{margin:0 0 16px 18px;}
+.lg-body li{margin-bottom:7px;}
+.lg-body strong{color:var(--ink);font-weight:500;}
+.lg-body .hl{background:var(--trbg);color:var(--terra);padding:2px 7px;border-radius:4px;font-size:13px;font-weight:500;}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .nl{display:none;}
+  .h-t{font-size:40px;}
+  .msg-layout{grid-template-columns:1fr;}
+  .conv-list{display:none;}
+  .photo-g{grid-template-columns:repeat(4,1fr);}
+  .fi-grid{grid-template-columns:1fr;}
+}
+@media(max-width:520px){
+  .feat-g,.dir-g{grid-template-columns:1fr;}
+  .hst{padding:12px 16px;}
+  .hst-n{font-size:22px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════ LANDING ════════════ -->
+<div id="landing" class="screen active">
+  <nav class="nav">
+    <div class="nav-logo" onclick="go('landing')">Lu<em>mière</em></div>
+    <div class="navlinks">
+      <button class="nl on" onclick="go('landing')">Accueil</button>
+      <button class="nl" onclick="go('annuaire')">Annuaire</button>
+      <button class="nl" onclick="go('annonces-screen')">Annonces</button>
+      <button class="nl" onclick="go('blog-screen')">Blog</button>
+      <button class="nl" onclick="go('messages-screen')">Messages</button>
+      <button class="nl" onclick="go('agenda-screen')">Agenda</button>
+      <button class="ncta ng" onclick="go('inscription')" style="margin-left:8px">S'inscrire</button>
+      <button class="ncta ns" onclick="go('dashboard')">Mon espace</button>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div class="h-pill"><span class="h-dot"></span> Réseau créatifs · France entière</div>
+    <h1 class="h-t">Le réseau des<br><em>créatifs</em><br>en France</h1>
+    <p class="h-sub">Photographes, vidéastes, maquilleurs, wedding planners, musiciens, fleuristes — tous les créatifs en France, réunis sur une seule plateforme.</p>
+    <div class="hero-btn-area" id="heroBtns">
+      <button id="btnAnnuaire" class="btn bs" style="position:relative;z-index:20">Explorer l'annuaire →</button>
+      <button id="btnInscription" class="btn bg" style="position:relative;z-index:20">Créer mon profil</button>
+    </div>
+    <div class="h-stats">
+      <div class="hst"><div class="hst-n">1 240</div><div class="hst-l">Prestataires</div></div>
+      <div class="hst"><div class="hst-n">68</div><div class="hst-l">Villes</div></div>
+      <div class="hst"><div class="hst-n">28</div><div class="hst-l">Métiers</div></div>
+      <div class="hst"><div class="hst-n">3,99€</div><div class="hst-l">Plan Pro/mois</div></div>
+    </div>
+  </div>
+
+  <div class="mq-wrap"><div class="mq" id="mq"></div></div>
+
+  <div class="sec">
+    <div class="sey">En vedette</div>
+    <h2 class="sh2">Créatifs du <em>moment</em></h2>
+    <p class="ssub">Une sélection des profils les plus actifs de la communauté.</p>
+    <div class="feat-g" id="featGrid"></div>
+    <div style="text-align:center;margin-top:32px">
+      <button class="btn bg" onclick="go('annuaire')">Voir tous les prestataires →</button>
+    </div>
+  </div>
+
+  <div class="div"></div>
+
+  <div class="sec">
+    <div class="sey">Comment ça marche</div>
+    <h2 class="sh2">Simple. <em>Direct.</em> Humain.</h2>
+    <div class="how-g">
+      <div><div class="hw-n">01</div><div class="hw-t">Parcourez librement</div><div class="hw-d">Filtrez par ville, métier, type (collab ou rémunéré). Aucune inscription requise.</div></div>
+      <div><div class="hw-n">02</div><div class="hw-t">Feed portfolio</div><div class="hw-d">Jusqu'à 15 photos par profil, liens Instagram et site web. Comme un portfolio dédié.</div></div>
+      <div><div class="hw-n">03</div><div class="hw-t">Contact direct</div><div class="hw-d">Messagerie intégrée, puis vous organisez comme vous le souhaitez par téléphone ou en direct.</div></div>
+      <div><div class="hw-n">04</div><div class="hw-t">Agenda personnel</div><div class="hw-d">Gérez vos rendez-vous et disponibilités directement depuis votre espace.</div></div>
+    </div>
+  </div>
+
+  <div class="div"></div>
+
+  <!-- ANNONCES PREVIEW -->
+  <div class="sec">
+    <div class="sey">Annonces collaboratives</div>
+    <h2 class="sh2">Trouvez vos <em>collaborateurs</em></h2>
+    <p class="ssub">Shootings, projets, mariages — des créatifs cherchent leurs partenaires pour des dates précises.</p>
+    <div id="landingAnnonces" style="display:flex;flex-direction:column;gap:12px;margin-bottom:28px"></div>
+    <div style="text-align:center">
+      <button class="btn bt" onclick="go('annonces-screen')">Voir toutes les annonces →</button>
+    </div>
+  </div>
+
+  <div class="pro-wrap">
+    <div class="sec" style="padding-top:52px;padding-bottom:52px">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px">
+        <div>
+          <div class="sey">Lumière Pro</div>
+          <h2 class="sh2" style="margin-bottom:6px">Tout pour <em>se démarquer</em></h2>
+          <p style="font-size:14px;color:var(--ink3);font-weight:300;line-height:1.65">Badge vérifié · Priorité dans les résultats · 15 photos portfolio<br>Messagerie illimitée · Annonces collabs · Lien site web · Stats profil</p>
+        </div>
+        <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap">
+          <div style="text-align:right">
+            <div style="font-family:var(--serif);font-size:36px;font-weight:500;color:var(--ink)">3,99€</div>
+            <div style="font-size:12px;color:var(--ink4)">/mois · sans engagement</div>
+          </div>
+          <button class="btn bt" onclick="go('inscription')">Rejoindre Pro →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sey">Magazine</div>
+    <h2 class="sh2">Tendances & <em>inspirations</em></h2>
+    <p class="ssub">Conseils, adresses et portraits de créatifs à travers toute la France.</p>
+    <div class="blog-g" id="landingBlog"></div>
+    <div style="text-align:center;margin-top:36px">
+      <button class="btn bs" onclick="go('blog-screen')">Lire le magazine →</button>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="fi-grid">
+      <div>
+        <div class="ft-logo">Lu<em>mière</em></div>
+        <p class="ft-desc">Le réseau des photographes, wedding planners, maquilleuses et créatifs en France. Profils, messagerie et agenda. Sans commission.</p>
+      </div>
+      <div>
+        <div class="ft-ct">Navigation</div>
+        <div class="ft-links">
+          <span class="ft-l" onclick="go('annuaire')">Annuaire</span>
+          <span class="ft-l" onclick="go('annonces-screen')">Annonces collaboratives</span>
+          <span class="ft-l" onclick="go('blog-screen')">Blog & Magazine</span>
+          <span class="ft-l" onclick="go('inscription')">Devenir prestataire</span>
+          <span class="ft-l" onclick="go('dashboard')">Mon espace</span>
+        </div>
+      </div>
+      <div>
+        <div class="ft-ct">Légal</div>
+        <div class="ft-links">
+          <span class="ft-l" onclick="showLegal('cgv')">Conditions d'utilisation</span>
+          <span class="ft-l" onclick="showLegal('mentions')">Mentions légales</span>
+          <span class="ft-l" onclick="showLegal('rgpd')">Confidentialité & RGPD</span>
+        </div>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <span class="ft-copy">© 2025 Lumière · France entière · Abonnement Pro à 3,99€/mois</span>
+      <span class="ft-copy">Fait avec soin</span>
+    </div>
+  </footer>
+</div>
+
+<!-- ════════════ ANNUAIRE ════════════ -->
+<div id="annuaire" class="screen">
+  <nav class="nav">
+    <div class="nav-logo" onclick="go('landing')">Lu<em>mière</em></div>
+    <div class="navlinks">
+      <button class="nl" onclick="go('landing')">Accueil</button>
+      <button class="nl on">Annuaire</button>
+      <button class="nl" onclick="go('blog-screen')">Blog</button>
+      <button class="ncta ns" onclick="go('inscription')" style="margin-left:8px">S'inscrire</button>
+    </div>
+  </nav>
+  <div class="dir-hd">
+    <div class="dir-hd-in">
+      <h1 class="dir-h1">Annuaire des <em>créatifs</em></h1>
+      <p style="font-size:13px;color:var(--ink4);margin-bottom:20px;font-weight:300">Toute la France · Accès libre sans inscription</p>
+      <div class="sr">
+        <input class="si" id="skw" placeholder="Nom, spécialité, ville, mot-clé…" oninput="filterDir()"/>
+        <select class="ss" id="sReg" onchange="filterDir()">
+          <option value="">Toute la France</option>
+          <option>Île-de-France</option><option>PACA</option><option>Occitanie</option>
+          <option>Auvergne-Rhône-Alpes</option><option>Nouvelle-Aquitaine</option>
+          <option>Bretagne</option><option>Normandie</option><option>Grand Est</option>
+          <option>Hauts-de-France</option><option>Centre-Val de Loire</option>
+        </select>
+        <select class="ss" id="sType" onchange="filterDir()">
+          <option value="">Collab & Rémunéré</option>
+          <option value="collab">Collab / TFP</option>
+          <option value="paid">Rémunéré</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="dir-body">
+    <div class="chips" id="dirFilt" style="margin-bottom:20px">
+      <div class="chip on" onclick="fMet('',this)">Tous</div>
+      <div style="width:1px;background:var(--border);margin:0 4px;align-self:stretch"></div>
+      <div class="chip" onclick="fMet('Photographe',this)">📷 Photographe</div>
+      <div class="chip" onclick="fMet('Vidéaste',this)">🎬 Vidéaste</div>
+      <div class="chip" onclick="fMet('Drone',this)">🚁 Drone</div>
+      <div class="chip" onclick="fMet('Retoucheur',this)">🖥 Retouche</div>
+      <div class="chip" onclick="fMet('Assistant',this)">⚡ Assistant</div>
+      <div style="width:1px;background:var(--border);margin:0 4px;align-self:stretch"></div>
+      <div class="chip" onclick="fMet('Maquilleur',this)">💄 Maquilleur</div>
+      <div class="chip" onclick="fMet('Coiffeur',this)">✂️ Coiffeur</div>
+      <div class="chip" onclick="fMet('Styliste',this)">👗 Styliste</div>
+      <div class="chip" onclick="fMet('Modèle',this)">✨ Modèle</div>
+      <div class="chip" onclick="fMet('Culinaire',this)">🍽 Culinaire</div>
+      <div style="width:1px;background:var(--border);margin:0 4px;align-self:stretch"></div>
+      <div class="chip" onclick="fMet('Wedding Planner',this)">💐 Wedding Planner</div>
+      <div class="chip" onclick="fMet('Wedding Designer',this)">🕯 Déco / Designer</div>
+      <div class="chip" onclick="fMet('Fleuriste',this)">🌸 Fleuriste</div>
+      <div class="chip" onclick="fMet('Calligraphe',this)">✒️ Calligraphe</div>
+      <div class="chip" onclick="fMet('Officiant',this)">🎙 Officiant</div>
+      <div style="width:1px;background:var(--border);margin:0 4px;align-self:stretch"></div>
+      <div class="chip" onclick="fMet('Directeur Artistique',this)">🎨 DA</div>
+      <div class="chip" onclick="fMet('Scénographe',this)">🏛 Scénographe</div>
+      <div class="chip" onclick="fMet('Illustrateur',this)">🖌 Illustrateur</div>
+      <div class="chip" onclick="fMet('Motion',this)">⚙️ Motion Design</div>
+      <div class="chip" onclick="fMet('Créateur de Contenu',this)">📱 Contenu / SMM</div>
+      <div style="width:1px;background:var(--border);margin:0 4px;align-self:stretch"></div>
+      <div class="chip" onclick="fMet('Musicien',this)">🎻 Musicien</div>
+      <div class="chip" onclick="fMet('Chanteur',this)">🎤 Chanteur</div>
+      <div class="chip" onclick="fMet('DJ',this)">🎧 DJ</div>
+      <div class="chip" onclick="fMet('Ingénieur du Son',this)">🎚 Son</div>
+      <div class="chip" onclick="fMet('Groupe',this)">🎸 Groupe Live</div>
+      <div class="chip" onclick="fMet('Compositeur',this)">🎼 Compositeur</div>
+    </div>
+    <p style="font-size:13px;color:var(--ink4);margin-bottom:18px" id="dirCnt"></p>
+    <div class="dir-g" id="dirGrid"></div>
+  </div>
+</div>
+
+<!-- ════════════ BLOG ════════════ -->
+<div id="blog-screen" class="screen">
+  <nav class="nav">
+    <div class="nav-logo" onclick="go('landing')">Lu<em>mière</em></div>
+    <div class="navlinks">
+      <button class="nl" onclick="go('landing')">Accueil</button>
+      <button class="nl" onclick="go('annuaire')">Annuaire</button>
+      <button class="nl on">Blog</button>
+      <button class="ncta ns" onclick="go('inscription')" style="margin-left:8px">S'inscrire</button>
+    </div>
+  </nav>
+  <div id="blog-lv">
+    <div class="blog-hd">
+      <div style="max-width:1160px;margin:0 auto">
+        <h1 class="blog-h1">Le <em>magazine</em><br>des créatifs</h1>
+        <p style="font-size:14px;color:var(--ink4);margin:8px 0 22px;font-weight:300">Portraits · Tendances · Conseils · Adresses</p>
+        <div class="chips" id="blogCats">
+          <div class="chip on" onclick="fBlog('',this)">Tous les articles</div>
+          <div class="chip" onclick="fBlog('Mariage',this)">Mariage</div>
+          <div class="chip" onclick="fBlog('Photo',this)">Conseils photo</div>
+          <div class="chip" onclick="fBlog('Lieux',this)">Lieux</div>
+          <div class="chip" onclick="fBlog('Portrait',this)">Portraits créatifs</div>
+        </div>
+      </div>
+    </div>
+    <div class="blog-body">
+      <div class="blog-g" id="blogGrid"></div>
+    </div>
+  </div>
+  <div id="blog-av" style="display:none">
+    <div class="art-wrap">
+      <div class="art-back" onclick="backBlog()">← Retour au blog</div>
+      <div id="artCont"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ INSCRIPTION ════════════ -->
+<div id="inscription" class="screen">
+  <nav class="nav">
+    <div class="nav-logo" onclick="go('landing')">Lu<em>mière</em></div>
+    <div class="navlinks">
+      <button class="nl" onclick="go('landing')">← Accueil</button>
+      <button class="ncta ng" onclick="go('dashboard')">Déjà inscrit</button>
+    </div>
+  </nav>
+  <div class="reg-wrap">
+    <h1 class="reg-h1">Rejoindre <em>Lumière</em></h1>
+    <p class="reg-sub">Créez votre profil en 2 minutes. Vos photos, vos liens, votre univers — visible par toute la France.</p>
+    <div class="prog" id="prog"><div class="pseg act"></div><div class="pseg"></div></div>
+    <!-- Étape 1 -->
+    <div id="r1">
+      <p style="font-size:11px;font-weight:500;color:var(--ink4);letter-spacing:.07em;text-transform:uppercase;margin-bottom:20px">Étape 1 — Votre profil</p>
+      <div class="fg"><label class="fl">Prénom et nom *</label><input class="fi" id="rNm" placeholder="Votre nom"/></div>
+      <div class="fg"><label class="fl">Votre métier *</label>
+
+        <p style="font-size:11px;font-weight:500;color:var(--ink4);letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px">📸 Image & Vidéo</p>
+        <div class="roles-g" style="grid-template-columns:1fr 1fr 1fr;margin-bottom:16px">
+          <div class="rb" onclick="selRole(this,'Photographe')"><div class="rb-icon">📷</div><div class="rb-n">Photographe</div><div class="rb-d">Mode, mariage, lifestyle…</div></div>
+          <div class="rb" onclick="selRole(this,'Vidéaste / Réalisateur')"><div class="rb-icon">🎬</div><div class="rb-n">Vidéaste / Réalisateur</div><div class="rb-d">Film, clip, mariage…</div></div>
+          <div class="rb" onclick="selRole(this,'Pilote de Drone')"><div class="rb-icon">🚁</div><div class="rb-n">Pilote de Drone</div><div class="rb-d">Prises de vue aériennes</div></div>
+          <div class="rb" onclick="selRole(this,'Retoucheur / Post-production')"><div class="rb-icon">🖥</div><div class="rb-n">Retoucheur</div><div class="rb-d">Post-prod, colorimétrie…</div></div>
+          <div class="rb" onclick="selRole(this,'Assistant / Digital Tech')"><div class="rb-icon">⚡</div><div class="rb-n">Assistant / Lumi.</div><div class="rb-d">Luminiériste, digital tech</div></div>
+        </div>
+
+        <p style="font-size:11px;font-weight:500;color:var(--ink4);letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px">💄 Beauté & Apparence</p>
+        <div class="roles-g" style="grid-template-columns:1fr 1fr 1fr;margin-bottom:16px">
+          <div class="rb" onclick="selRole(this,'Maquilleur / Maquilleuse')"><div class="rb-icon">💄</div><div class="rb-n">Maquilleur / MUA</div><div class="rb-d">Mariage, éditorial…</div></div>
+          <div class="rb" onclick="selRole(this,'Coiffeur / Coiffeuse')"><div class="rb-icon">✂️</div><div class="rb-n">Coiffeur / Coiffeuse</div><div class="rb-d">Studio, événementiel…</div></div>
+          <div class="rb" onclick="selRole(this,'Styliste Photo / Mode')"><div class="rb-icon">👗</div><div class="rb-n">Styliste Photo / Mode</div><div class="rb-d">Lookbook, éditorial…</div></div>
+          <div class="rb" onclick="selRole(this,'Styliste Culinaire')"><div class="rb-icon">🍽</div><div class="rb-n">Styliste Culinaire</div><div class="rb-d">Photo food & boissons</div></div>
+          <div class="rb" onclick="selRole(this,'Modèle / Mannequin')"><div class="rb-icon">✨</div><div class="rb-n">Modèle / Mannequin</div><div class="rb-d">Shooting, éditorial…</div></div>
+        </div>
+
+        <p style="font-size:11px;font-weight:500;color:var(--ink4);letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px">💍 Mariage & Événementiel</p>
+        <div class="roles-g" style="grid-template-columns:1fr 1fr 1fr;margin-bottom:16px">
+          <div class="rb" onclick="selRole(this,'Wedding Planner')"><div class="rb-icon">💐</div><div class="rb-n">Wedding Planner</div><div class="rb-d">Organisation mariage…</div></div>
+          <div class="rb" onclick="selRole(this,'Wedding Designer / Déco')"><div class="rb-icon">🕯</div><div class="rb-n">Wedding Designer</div><div class="rb-d">Décoration événement…</div></div>
+          <div class="rb" onclick="selRole(this,'Fleuriste Événementiel')"><div class="rb-icon">🌸</div><div class="rb-n">Fleuriste Événementiel</div><div class="rb-d">Design floral, bouquets…</div></div>
+          <div class="rb" onclick="selRole(this,'Calligraphe / Graphiste')"><div class="rb-icon">✒️</div><div class="rb-n">Calligraphe / Graphiste</div><div class="rb-d">Faire-part, papeterie…</div></div>
+          <div class="rb" onclick="selRole(this,'Officiant de Cérémonie')"><div class="rb-icon">🎙</div><div class="rb-n">Officiant Laïque</div><div class="rb-d">Cérémonie sur-mesure</div></div>
+        </div>
+
+        <p style="font-size:11px;font-weight:500;color:var(--ink4);letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px">🎨 Art & Création</p>
+        <div class="roles-g" style="grid-template-columns:1fr 1fr 1fr;margin-bottom:16px">
+          <div class="rb" onclick="selRole(this,'Directeur Artistique')"><div class="rb-icon">🎨</div><div class="rb-n">Directeur Artistique</div><div class="rb-d">Concept, direction…</div></div>
+          <div class="rb" onclick="selRole(this,'Scénographe')"><div class="rb-icon">🏛</div><div class="rb-n">Scénographe</div><div class="rb-d">Décors de plateau…</div></div>
+          <div class="rb" onclick="selRole(this,'Illustrateur / Live Painting')"><div class="rb-icon">🖌</div><div class="rb-n">Illustrateur / Peintre</div><div class="rb-d">Live painting, art…</div></div>
+          <div class="rb" onclick="selRole(this,'Motion Designer')"><div class="rb-icon">⚙️</div><div class="rb-n">Motion Designer</div><div class="rb-d">Animation, motion…</div></div>
+          <div class="rb" onclick="selRole(this,'Créateur de Contenu / SMM')"><div class="rb-icon">📱</div><div class="rb-n">Créateur de Contenu</div><div class="rb-d">Réseaux sociaux, SMM…</div></div>
+        </div>
+
+        <p style="font-size:11px;font-weight:500;color:var(--ink4);letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px">🎵 Musique & Audio</p>
+        <div class="roles-g" style="grid-template-columns:1fr 1fr 1fr;margin-bottom:8px">
+          <div class="rb" onclick="selRole(this,'Musicien / Instrumentiste')"><div class="rb-icon">🎻</div><div class="rb-n">Musicien / Instrum.</div><div class="rb-d">Piano, violon, saxo…</div></div>
+          <div class="rb" onclick="selRole(this,'Chanteur / Chorale')"><div class="rb-icon">🎤</div><div class="rb-n">Chanteur / Chorale</div><div class="rb-d">Voix, gospel, lyrique…</div></div>
+          <div class="rb" onclick="selRole(this,'DJ / Sound Designer')"><div class="rb-icon">🎧</div><div class="rb-n">DJ / Sound Designer</div><div class="rb-d">Mix, ambiance, son…</div></div>
+          <div class="rb" onclick="selRole(this,'Ingénieur du Son')"><div class="rb-icon">🎚</div><div class="rb-n">Ingénieur du Son</div><div class="rb-d">Mixage, podcast, vidéo…</div></div>
+          <div class="rb" onclick="selRole(this,'Groupe de Musique Live')"><div class="rb-icon">🎸</div><div class="rb-n">Groupe Live</div><div class="rb-d">Band événementiel…</div></div>
+          <div class="rb" onclick="selRole(this,'Compositeur')"><div class="rb-icon">🎼</div><div class="rb-n">Compositeur</div><div class="rb-d">Musique originale…</div></div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div class="fg"><label class="fl">Ville *</label><input class="fi" id="rVl" placeholder="Paris, Lyon, Aix…"/></div>
+        <div class="fg"><label class="fl">Région *</label>
+          <select class="fi fsel" id="rReg">
+            <option value="">Choisir…</option>
+            <option>Île-de-France</option><option>PACA</option><option>Occitanie</option>
+            <option>Auvergne-Rhône-Alpes</option><option>Nouvelle-Aquitaine</option>
+            <option>Bretagne</option><option>Normandie</option><option>Grand Est</option>
+            <option>Hauts-de-France</option><option>Centre-Val de Loire</option>
+          </select>
+        </div>
+      </div>
+      <div class="fg"><label class="fl">Bio</label><textarea class="fi fta" id="rBio" placeholder="2-3 phrases sur votre univers, votre style…"></textarea></div>
+      <div class="fg"><label class="fl">Disponible pour</label>
+        <div class="chips" style="margin-top:6px">
+          <div class="chip" id="cChip" onclick="this.classList.toggle('on')">Collab TFP</div>
+          <div class="chip on" id="pChip" onclick="this.classList.toggle('on')">Prestations rémunérées</div>
+        </div>
+      </div>
+      <button class="btn bt" onclick="r1Next()">Continuer →</button>
+    </div>
+    <!-- Étape 2 -->
+    <div id="r2" style="display:none">
+      <p style="font-size:11px;font-weight:500;color:var(--ink4);letter-spacing:.07em;text-transform:uppercase;margin-bottom:20px">Étape 2 — Portfolio & liens</p>
+      <div class="fg">
+        <label class="fl">Photos (15 max) — la 1ère sera votre couverture</label>
+        <div class="photo-g" id="photoGrid"></div>
+        <p style="font-size:11px;color:var(--ink4);text-align:right;margin-top:5px" id="photoCnt">0 / 15</p>
+        <input type="file" id="photoIn" accept="image/*" multiple style="display:none" onchange="handlePhotos(event)"/>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div class="fg"><label class="fl">Instagram</label><input class="fi" id="rInsta" placeholder="instagram.com/…"/></div>
+        <div class="fg"><label class="fl">Site web</label><input class="fi" id="rSite" placeholder="monsite.com"/></div>
+      </div>
+      <div class="fg">
+        <label class="fl">Mots-clés SEO <span style="color:var(--ink4);font-size:10px;text-transform:none;letter-spacing:0">(pour être trouvé sur Google)</span></label>
+        <div class="kw-row"><input class="fi" id="kwIn" placeholder="Ex : photographe mariage paris" style="flex:1" onkeydown="if(event.key==='Enter'){addKw();event.preventDefault()}"/><button class="btn bt bsm" onclick="addKw()">+</button></div>
+        <div class="kw-list" id="kwList" style="margin-bottom:10px"></div>
+        <div class="chips" id="kwSugg"></div>
+      </div>
+      <div class="fg">
+        <label class="fl">Choisissez votre plan</label>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px">
+          <!-- Gratuit -->
+          <div class="rb on" id="planF" onclick="selPlan('free',this)" style="padding:20px">
+            <div style="font-size:22px;margin-bottom:8px">🆓</div>
+            <div style="font-family:var(--serif);font-size:18px;font-weight:500;color:var(--ink);margin-bottom:4px">Gratuit</div>
+            <div style="font-family:var(--serif);font-size:22px;font-weight:500;color:var(--ink3);margin-bottom:14px">0€<span style="font-size:13px;color:var(--ink4);font-family:var(--sans)">/mois</span></div>
+            <div style="display:flex;flex-direction:column;gap:7px">
+              <div style="font-size:12px;color:var(--ink3);display:flex;align-items:flex-start;gap:6px"><span style="color:var(--olive);flex-shrink:0">✓</span> Profil public visible</div>
+              <div style="font-size:12px;color:var(--ink3);display:flex;align-items:flex-start;gap:6px"><span style="color:var(--olive);flex-shrink:0">✓</span> <span><strong style="color:var(--ink2)">6 photos</strong> portfolio</span></div>
+              <div style="font-size:12px;color:var(--ink3);display:flex;align-items:flex-start;gap:6px"><span style="color:var(--olive);flex-shrink:0">✓</span> Instagram affiché</div>
+              <div style="font-size:12px;color:var(--ink3);display:flex;align-items:flex-start;gap:6px"><span style="color:var(--olive);flex-shrink:0">✓</span> Messagerie <strong style="color:var(--ink2)">(5 conv. max)</strong></div>
+              <div style="font-size:12px;color:var(--ink3);display:flex;align-items:flex-start;gap:6px"><span style="color:var(--olive);flex-shrink:0">✓</span> Agenda basique</div>
+              <div style="height:1px;background:var(--border);margin:4px 0"></div>
+              <div style="font-size:12px;color:var(--ink4);display:flex;align-items:flex-start;gap:6px"><span style="flex-shrink:0">–</span> Pas de badge Vérifié</div>
+              <div style="font-size:12px;color:var(--ink4);display:flex;align-items:flex-start;gap:6px"><span style="flex-shrink:0">–</span> Pas de lien site web</div>
+              <div style="font-size:12px;color:var(--ink4);display:flex;align-items:flex-start;gap:6px"><span style="flex-shrink:0">–</span> Pas d'annonces collab</div>
+              <div style="font-size:12px;color:var(--ink4);display:flex;align-items:flex-start;gap:6px"><span style="flex-shrink:0">–</span> Pas de stats profil</div>
+            </div>
+          </div>
+          <!-- Pro -->
+          <div class="rb" id="planP" onclick="selPlan('pro',this)" style="padding:20px;position:relative;border-color:var(--terra)!important;background:var(--trbg)!important">
+            <div style="position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--terra);color:#fff;font-size:10px;font-weight:600;padding:3px 14px;border-radius:20px;letter-spacing:.06em;white-space:nowrap">RECOMMANDÉ</div>
+            <div style="font-size:22px;margin-bottom:8px">✦</div>
+            <div style="font-family:var(--serif);font-size:18px;font-weight:500;color:var(--ink);margin-bottom:4px">Lumière Pro</div>
+            <div style="font-family:var(--serif);font-size:22px;font-weight:500;color:var(--terra);margin-bottom:14px">3,99€<span style="font-size:13px;color:var(--ink4);font-family:var(--sans)">/mois</span></div>
+            <div style="display:flex;flex-direction:column;gap:7px">
+              <div style="font-size:12px;color:var(--ink2);display:flex;align-items:flex-start;gap:6px"><span style="color:var(--terra);flex-shrink:0">✦</span> <span><strong>15 photos</strong> portfolio</span></div>
+              <div style="font-size:12px;color:var(--ink2);display:flex;align-items:flex-start;gap:6px"><span style="color:var(--terra);flex-shrink:0">✦</span> Lien site web affiché</div>
+              <div style="font-size:12px;color:var(--ink2);display:flex;align-items:flex-start;gap:6px"><span style="color:var(--terra);flex-shrink:0">✦</span> Messagerie <strong>illimitée</strong></div>
+              <div style="font-size:12px;color:var(--ink2);display:flex;align-items:flex-start;gap:6px"><span style="color:var(--terra);flex-shrink:0">✦</span> Badge <em style="font-style:italic">Vérifié</em></div>
+              <div style="font-size:12px;color:var(--ink2);display:flex;align-items:flex-start;gap:6px"><span style="color:var(--terra);flex-shrink:0">✦</span> Priorité dans l'annuaire</div>
+              <div style="font-size:12px;color:var(--ink2);display:flex;align-items:flex-start;gap:6px"><span style="color:var(--terra);flex-shrink:0">✦</span> <strong>Annonces collab</strong> débloquées</div>
+              <div style="font-size:12px;color:var(--ink2);display:flex;align-items:flex-start;gap:6px"><span style="color:var(--terra);flex-shrink:0">✦</span> Statistiques de profil</div>
+              <div style="font-size:12px;color:var(--ink2);display:flex;align-items:flex-start;gap:6px"><span style="color:var(--terra);flex-shrink:0">✦</span> Mise en avant hebdo landing</div>
+              <div style="font-size:12px;color:var(--ink2);display:flex;align-items:flex-start;gap:6px"><span style="color:var(--terra);flex-shrink:0">✦</span> Profil indexé Google (SEO)</div>
+            </div>
+            <div style="margin-top:14px;font-size:11px;color:var(--ink4)">Sans engagement · Résiliable à tout moment</div>
+          </div>
+        </div>
+      </div>
+      <button class="btn bt" style="width:100%;justify-content:center" onclick="finishReg()">Publier mon profil →</button>
+      <p style="font-size:11px;color:var(--ink4);text-align:center;margin-top:10px">En publiant, vous acceptez les <span style="color:var(--terra);cursor:pointer" onclick="showLegal('cgv')">CGU</span> et la <span style="color:var(--terra);cursor:pointer" onclick="showLegal('rgpd')">politique de confidentialité</span>.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ DASHBOARD ════════════ -->
+<div id="dashboard" class="screen">
+  <nav class="nav">
+    <div class="nav-logo" onclick="go('landing')">Lu<em>mière</em></div>
+    <div class="navlinks">
+      <button class="nl on">Mon espace</button>
+      <button class="nl" onclick="go('agenda-screen')">Agenda</button>
+      <button class="nl" onclick="go('messages-screen')">Messages <span id="ubadge" style="display:none;background:var(--terra);color:#fff;padding:1px 6px;border-radius:20px;font-size:10px;font-weight:600;margin-left:2px">2</span></button>
+      <button class="nl" onclick="go('annuaire')">Mon profil public</button>
+      <button class="ncta ng" onclick="go('landing')" style="margin-left:8px">Déconnexion</button>
+    </div>
+  </nav>
+  <div class="dash-wrap">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:28px;flex-wrap:wrap;gap:16px">
+      <div>
+        <h1 class="dash-h1">Bonjour, <em id="dNm">Sacha</em></h1>
+        <p style="font-size:13px;color:var(--ink4);margin-top:4px" id="dSub">Photographe · Aix-en-Provence · PACA</p>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+        <div class="tg-w" onclick="toggleCollab()">
+          <div class="tg-t on" id="tgT"><div class="tg-th"></div></div>
+          <span style="font-size:13px;color:var(--ink3)" id="tgL">Collab activé</span>
+        </div>
+        <span style="font-size:12px;padding:4px 12px;background:var(--trbg);color:var(--terra);border:1px solid rgba(139,79,42,.2);border-radius:20px;font-weight:500" id="planBdg">Pro ✦</span>
+      </div>
+    </div>
+    <div class="stats-g">
+      <div class="sc"><div class="sc-n">247</div><div class="sc-l">Vues ce mois</div></div>
+      <div class="sc"><div class="sc-n">34</div><div class="sc-l">Clics portfolio</div></div>
+      <div class="sc"><div class="sc-n">12</div><div class="sc-l">Contacts reçus</div></div>
+      <div class="sc"><div class="sc-n">3</div><div class="sc-l">Rendez-vous ce mois</div></div>
+    </div>
+
+    <!-- ACTION RAPIDE PRO -->
+    <div style="background:var(--trbg);border:1px solid rgba(139,79,42,.18);border-radius:var(--r);padding:16px 20px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+      <div>
+        <p style="font-size:14px;font-weight:500;color:var(--ink2);margin-bottom:2px">✦ Vous êtes membre Pro</p>
+        <p style="font-size:12px;color:var(--ink4);font-weight:300">Postez une annonce pour trouver des collaborateurs — visible par toute la communauté</p>
+      </div>
+      <button class="btn bt bsm" onclick="go('annonces-screen');setTimeout(openNewAnnonce,300)">+ Poster une annonce</button>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px">
+      <div class="db">
+        <div class="dbt">Messages récents <button class="btn bg bxs" onclick="go('messages-screen')">Tout voir</button></div>
+        <div id="dMsgs"></div>
+      </div>
+      <div class="db">
+        <div class="dbt">Prochains rendez-vous <button class="btn bg bxs" onclick="go('agenda-screen')">Agenda →</button></div>
+        <div id="dRdv"></div>
+      </div>
+    </div>
+    <div class="db" style="margin-bottom:14px">
+      <div class="dbt">Mots-clés SEO <span style="font-size:12px;color:var(--ink4);font-family:var(--sans);font-weight:300">Pour être mieux trouvé</span></div>
+      <div class="kw-list2" id="dKwList" style="margin-bottom:12px">
+        <div class="kwi">photographe mariage provence<button onclick="this.parentNode.remove()">×</button></div>
+        <div class="kwi">portrait aix-en-provence<button onclick="this.parentNode.remove()">×</button></div>
+        <div class="kwi">lifestyle luberon<button onclick="this.parentNode.remove()">×</button></div>
+      </div>
+      <div style="display:flex;gap:8px">
+        <input class="fi" id="dKwIn" placeholder="Nouveau mot-clé…" style="flex:1;max-width:300px" onkeydown="if(event.key==='Enter')addDKw()"/>
+        <button class="btn bt bsm" onclick="addDKw()">Ajouter</button>
+      </div>
+    </div>
+    <div class="db">
+      <div class="dbt">Mon profil <button class="btn bt bxs" onclick="go('edit-profile')">Modifier le profil & feed →</button></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:14px">
+        <div><span style="font-size:11px;color:var(--ink4);display:block;margin-bottom:2px">Nom</span><span id="dInfoNm">Sacha Ktorza</span></div>
+        <div><span style="font-size:11px;color:var(--ink4);display:block;margin-bottom:2px">Métier</span><span id="dInfoRl">Photographe</span></div>
+        <div><span style="font-size:11px;color:var(--ink4);display:block;margin-bottom:2px">Ville</span>Aix-en-Provence</div>
+        <div><span style="font-size:11px;color:var(--ink4);display:block;margin-bottom:2px">Région</span>PACA</div>
+        <div><span style="font-size:11px;color:var(--ink4);display:block;margin-bottom:2px">Instagram</span><a href="https://instagram.com/sachaktorza" target="_blank" style="color:var(--terra)">@sachaktorza</a></div>
+        <div><span style="font-size:11px;color:var(--ink4);display:block;margin-bottom:2px">Site</span><a href="https://sachaktorza.com" target="_blank" style="color:var(--terra)">sachaktorza.com</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ AGENDA ════════════ -->
+<div id="agenda-screen" class="screen">
+  <nav class="nav">
+    <div class="nav-logo" onclick="go('landing')">Lu<em>mière</em></div>
+    <div class="navlinks">
+      <button class="nl" onclick="go('dashboard')">← Mon espace</button>
+      <button class="nl on">Agenda</button>
+    </div>
+  </nav>
+  <div class="ag-wrap">
+    <h1 class="ag-h1">Mon <em>agenda</em></h1>
+    <p style="font-size:14px;color:var(--ink4);margin-bottom:28px;font-weight:300">Gérez vos disponibilités et rendez-vous</p>
+    <div style="display:grid;grid-template-columns:1fr 340px;gap:24px;flex-wrap:wrap">
+      <!-- Calendrier -->
+      <div>
+        <div class="cal-header">
+          <button class="cal-nav" onclick="prevMonth()">‹</button>
+          <div class="cal-month" id="calMonth"></div>
+          <button class="cal-nav" onclick="nextMonth()">›</button>
+        </div>
+        <div class="cal-grid">
+          <div class="cal-day-hd">Lun</div><div class="cal-day-hd">Mar</div><div class="cal-day-hd">Mer</div>
+          <div class="cal-day-hd">Jeu</div><div class="cal-day-hd">Ven</div><div class="cal-day-hd">Sam</div><div class="cal-day-hd">Dim</div>
+          <div id="calDays"></div>
+        </div>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--ink4);margin-top:8px">
+          <div style="display:flex;align-items:center;gap:5px"><div style="width:10px;height:10px;border-radius:3px;background:var(--trbg);border:1px solid rgba(139,79,42,.2)"></div>Aujourd'hui</div>
+          <div style="display:flex;align-items:center;gap:5px"><div style="width:10px;height:10px;border-radius:3px;background:var(--olbg);border:1px solid rgba(74,90,53,.18)"></div>Rendez-vous</div>
+        </div>
+      </div>
+      <!-- Panel RDV -->
+      <div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+          <div style="font-family:var(--serif);font-size:17px;font-weight:500;color:var(--ink)" id="rdvPanelTitle">Tous les rendez-vous</div>
+          <button class="btn bt bxs" onclick="openNewRdv()">+ Nouveau</button>
+        </div>
+        <div class="rdv-list" id="rdvList"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ MESSAGERIE ════════════ -->
+<div id="messages-screen" class="screen">
+  <nav class="nav">
+    <div class="nav-logo" onclick="go('landing')">Lu<em>mière</em></div>
+    <div class="navlinks">
+      <button class="nl" onclick="go('dashboard')">← Mon espace</button>
+      <button class="nl on">Messages</button>
+    </div>
+  </nav>
+  <div class="msg-layout">
+    <div class="conv-list">
+      <div class="conv-hd">Conversations</div>
+      <div id="convList"></div>
+    </div>
+    <div class="chat-win">
+      <div class="chat-hd" id="chatHd"></div>
+      <div class="chat-msgs" id="chatMsgs"></div>
+      <div class="chat-foot">
+        <button class="ai-btn" onclick="aiSuggest()">✦ Suggérer</button>
+        <textarea class="chat-inp" id="chatInp" placeholder="Votre message…" rows="1" onkeydown="handleEnter(event)"></textarea>
+        <button class="send-btn" onclick="sendMsg()">↑</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ ÉDITION PROFIL ════════════ -->
+<div id="edit-profile" class="screen">
+  <nav class="nav">
+    <div class="nav-logo" onclick="go('landing')">Lu<em>mière</em></div>
+    <div class="navlinks">
+      <button class="nl" onclick="go('dashboard')">← Mon espace</button>
+      <button class="nl on">Modifier mon profil</button>
+    </div>
+  </nav>
+  <div style="max-width:820px;margin:0 auto;padding:40px 32px">
+    <h1 style="font-family:var(--serif);font-size:32px;font-weight:500;color:var(--ink);letter-spacing:-.02em;margin-bottom:6px">Mon <em style="font-style:italic;color:var(--terra)">profil</em></h1>
+    <p style="font-size:14px;color:var(--ink4);margin-bottom:32px;font-weight:300">Modifiez votre profil, votre bio et votre feed photo</p>
+
+    <!-- BIO & INFOS -->
+    <div class="db" style="margin-bottom:16px">
+      <div class="dbt">Informations générales</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+        <div class="fg"><label class="fl">Prénom et nom</label><input class="fi" id="epNm" value="Sacha Ktorza"/></div>
+        <div class="fg"><label class="fl">Métier</label>
+          <select class="fi fsel" id="epRole">
+            <optgroup label="📸 Image & Vidéo">
+              <option>Photographe</option><option>Vidéaste / Réalisateur</option>
+              <option>Pilote de Drone</option><option>Retoucheur / Post-production</option>
+              <option>Assistant / Digital Tech</option>
+            </optgroup>
+            <optgroup label="💄 Beauté & Apparence">
+              <option>Maquilleur / Maquilleuse</option><option>Coiffeur / Coiffeuse</option>
+              <option>Styliste Photo / Mode</option><option>Styliste Culinaire</option>
+              <option>Modèle / Mannequin</option>
+            </optgroup>
+            <optgroup label="💍 Mariage & Événementiel">
+              <option>Wedding Planner</option><option>Wedding Designer / Déco</option>
+              <option>Fleuriste Événementiel</option><option>Calligraphe / Graphiste</option>
+              <option>Officiant de Cérémonie</option>
+            </optgroup>
+            <optgroup label="🎨 Art & Création">
+              <option>Directeur Artistique</option><option>Scénographe</option>
+              <option>Illustrateur / Live Painting</option><option>Motion Designer</option>
+              <option>Créateur de Contenu / SMM</option>
+            </optgroup>
+            <optgroup label="🎵 Musique & Audio">
+              <option>Musicien / Instrumentiste</option><option>Chanteur / Chorale</option>
+              <option>DJ / Sound Designer</option><option>Ingénieur du Son</option>
+              <option>Groupe de Musique Live</option><option>Compositeur</option>
+            </optgroup>
+          </select>
+        </div>
+        <div class="fg"><label class="fl">Ville</label><input class="fi" id="epVille" value="Aix-en-Provence"/></div>
+        <div class="fg"><label class="fl">Région</label>
+          <select class="fi fsel" id="epReg">
+            <option>PACA</option><option>Île-de-France</option><option>Occitanie</option>
+            <option>Auvergne-Rhône-Alpes</option><option>Nouvelle-Aquitaine</option>
+            <option>Bretagne</option><option>Normandie</option><option>Grand Est</option>
+            <option>Hauts-de-France</option><option>Centre-Val de Loire</option>
+          </select>
+        </div>
+      </div>
+      <div class="fg"><label class="fl">Bio</label><textarea class="fi fta" id="epBio" style="min-height:100px">Photographe lifestyle basé à Aix. Style lumineux, villages provençaux, mariage et marques locales.</textarea></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+        <div class="fg"><label class="fl">Instagram</label><input class="fi" id="epInsta" value="instagram.com/sachaktorza"/></div>
+        <div class="fg"><label class="fl">Site web</label><input class="fi" id="epSite" value="sachaktorza.com"/></div>
+      </div>
+      <div class="fg"><label class="fl">Disponible pour</label>
+        <div class="chips" style="margin-top:6px">
+          <div class="chip on" id="epCollab" onclick="this.classList.toggle('on')">Collab TFP</div>
+          <div class="chip on" id="epPaid" onclick="this.classList.toggle('on')">Prestations rémunérées</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FEED PHOTOS -->
+    <div class="db" style="margin-bottom:16px">
+      <div class="dbt">
+        Mon feed photo
+        <div style="display:flex;gap:8px;align-items:center">
+          <span style="font-size:12px;color:var(--ink4);font-weight:300" id="epPhotoCnt">0 / 15 photos</span>
+          <button class="btn bt bxs" onclick="document.getElementById('epPhotoIn').click()">+ Ajouter des photos</button>
+        </div>
+      </div>
+      <p style="font-size:12px;color:var(--ink4);margin-bottom:14px;font-weight:300">Glissez pour réorganiser · Survolez pour supprimer · La 1ère photo est votre couverture</p>
+      <div id="epFeedGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px"></div>
+      <input type="file" id="epPhotoIn" accept="image/*" multiple style="display:none" onchange="handleEpPhotos(event)"/>
+      <div id="epFeedEmpty" style="display:none;padding:32px;text-align:center;border:2px dashed var(--cr4);border-radius:var(--r);color:var(--ink4)">
+        <div style="font-size:28px;margin-bottom:8px">📷</div>
+        <div style="font-size:13px">Cliquez sur "Ajouter des photos" pour commencer</div>
+      </div>
+    </div>
+
+    <!-- MOTS-CLÉS -->
+    <div class="db" style="margin-bottom:16px">
+      <div class="dbt">Mots-clés SEO</div>
+      <div class="kw-row"><input class="fi" id="epKwIn" placeholder="Ex : photographe mariage paris" style="flex:1" onkeydown="if(event.key==='Enter'){addEpKw();event.preventDefault()}"/><button class="btn bt bsm" onclick="addEpKw()">+</button></div>
+      <div class="kw-list" id="epKwList" style="margin-bottom:8px">
+        <div class="kwi">photographe lifestyle aix<button onclick="this.parentNode.remove()">×</button></div>
+        <div class="kwi">photographe mariage provence<button onclick="this.parentNode.remove()">×</button></div>
+        <div class="kwi">portrait aix-en-provence<button onclick="this.parentNode.remove()">×</button></div>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:12px">
+      <button class="btn bt" onclick="saveProfile()">Enregistrer les modifications →</button>
+      <button class="btn bg" onclick="go('dashboard')">Annuler</button>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ ANNONCES ════════════ -->
+<div id="annonces-screen" class="screen">
+  <nav class="nav">
+    <div class="nav-logo" onclick="go('landing')">Lu<em>mière</em></div>
+    <div class="navlinks">
+      <button class="nl" onclick="go('landing')">Accueil</button>
+      <button class="nl" onclick="go('annuaire')">Annuaire</button>
+      <button class="nl on">Annonces</button>
+      <button class="nl" onclick="go('blog-screen')">Blog</button>
+      <button class="ncta ns" onclick="go('inscription')" style="margin-left:8px">S'inscrire</button>
+    </div>
+  </nav>
+  <div style="max-width:900px;margin:0 auto;padding:48px 32px">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:8px;flex-wrap:wrap;gap:16px">
+      <div>
+        <h1 style="font-family:var(--serif);font-size:clamp(30px,5vw,48px);font-weight:500;color:var(--ink);letter-spacing:-.02em">Annonces <em style="font-style:italic;color:var(--terra)">collaboratives</em></h1>
+        <p style="font-size:14px;color:var(--ink4);margin-top:6px;font-weight:300">Shootings, projets, rencontres — trouvez vos collaborateurs pour une date précise</p>
+      </div>
+      <button class="btn bt" onclick="openNewAnnonce()">+ Poster une annonce</button>
+    </div>
+    <div style="background:var(--trbg);border:1px solid rgba(139,79,42,.2);border-radius:var(--r);padding:14px 18px;margin-bottom:28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+      <div>
+        <p style="font-size:13px;font-weight:500;color:var(--ink2)">✦ Poster une annonce est réservé aux membres Pro</p>
+        <p style="font-size:12px;color:var(--ink4);margin-top:2px;font-weight:300">Parcourir et répondre aux annonces est gratuit pour tous</p>
+      </div>
+      <button class="btn bt bsm" onclick="go('inscription')">Passer Pro — 3,99€/mois</button>
+    </div>
+    <div class="chips" id="annFilt" style="margin-bottom:24px">
+      <div class="chip on" onclick="fAnn('',this)">Toutes</div>
+      <div class="chip" onclick="fAnn('Photographe',this)">Photographe cherche…</div>
+      <div class="chip" onclick="fAnn('Modèle',this)">Modèle cherche…</div>
+      <div class="chip" onclick="fAnn('tfp',this)">Collab TFP</div>
+      <div class="chip" onclick="fAnn('paid',this)">Rémunéré</div>
+    </div>
+    <div id="annList" style="display:flex;flex-direction:column;gap:16px"></div>
+  </div>
+</div>
+
+<!-- NOUVELLE ANNONCE MODAL -->
+<div class="overlay" id="annonceMod">
+  <div class="modal">
+    <div class="mhd">
+      <div class="mht">Nouvelle <em>annonce</em></div>
+      <button class="mxbtn" onclick="closeOv('annonceMod')">×</button>
+    </div>
+    <div class="mbd">
+      <div style="background:var(--trbg);border:1px solid rgba(139,79,42,.15);border-radius:8px;padding:11px 15px;margin-bottom:18px;font-size:13px;color:var(--ink3)">✦ Fonctionnalité <strong style="color:var(--terra)">Pro</strong> · Visible par toute la communauté</div>
+      <div class="fg"><label class="fl">Titre *</label><input class="fi" id="annTitle" placeholder="Ex : Shooting éditorial · Paris · 15 avril"/></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div class="fg"><label class="fl">Date *</label><input class="fi" type="date" id="annDate"/></div>
+        <div class="fg"><label class="fl">Ville *</label><input class="fi" id="annVille" placeholder="Paris, Lyon, Aix…"/></div>
+      </div>
+      <div class="fg"><label class="fl">Description</label><textarea class="fi fta" id="annDesc" placeholder="Décrivez le projet, l'ambiance, ce que vous cherchez…"></textarea></div>
+      <div class="fg"><label class="fl">Je cherche</label>
+        <div class="chips" style="margin-top:6px" id="annNeeds">
+          <div class="chip" onclick="this.classList.toggle('on')">Photographe</div>
+          <div class="chip" onclick="this.classList.toggle('on')">Vidéaste</div>
+          <div class="chip" onclick="this.classList.toggle('on')">Drone</div>
+          <div class="chip" onclick="this.classList.toggle('on')">Retoucheur</div>
+          <div class="chip" onclick="this.classList.toggle('on')">Modèle</div>
+          <div class="chip" onclick="this.classList.toggle('on')">Maquilleur</div>
+          <div class="chip" onclick="this.classList.toggle('on')">Coiffeur</div>
+          <div class="chip" onclick="this.classList.toggle('on')">Styliste</div>
+          <div class="chip" onclick="this.classList.toggle('on')">Styliste Culinaire</div>
+          <div class="chip" onclick="this.classList.toggle('on')">Wedding Planner</div>
+          <div class="chip" onclick="this.classList.toggle('on')">Décorateur</div>
+          <div class="chip" onclick="this.classList.toggle('on')">Fleuriste</div>
+          <div class="chip" onclick="this.classList.toggle('on')">Calligraphe</div>
+          <div class="chip" onclick="this.classList.toggle('on')">Officiant</div>
+          <div class="chip" onclick="this.classList.toggle('on')">Directeur artistique</div>
+          <div class="chip" onclick="this.classList.toggle('on')">Scénographe</div>
+          <div class="chip" onclick="this.classList.toggle('on')">Illustrateur</div>
+          <div class="chip" onclick="this.classList.toggle('on')">Motion Designer</div>
+          <div class="chip" onclick="this.classList.toggle('on')">Musicien</div>
+          <div class="chip" onclick="this.classList.toggle('on')">Chanteur</div>
+          <div class="chip" onclick="this.classList.toggle('on')">DJ</div>
+          <div class="chip" onclick="this.classList.toggle('on')">Groupe Live</div>
+          <div class="chip" onclick="this.classList.toggle('on')">Ingénieur du Son</div>
+          <div class="chip" onclick="this.classList.toggle('on')">Compositeur</div>
+        </div>
+      </div>
+      <div class="fg"><label class="fl">Type</label>
+        <div class="chips" style="margin-top:6px">
+          <div class="chip on" id="annTFP" onclick="selectAnnType('tfp')">Collab TFP</div>
+          <div class="chip" id="annPaid" onclick="selectAnnType('paid')">Rémunéré</div>
+        </div>
+      </div>
+      <button class="btn bt" style="width:100%;justify-content:center;margin-top:4px" onclick="submitAnnonce()">Publier l'annonce →</button>
+    </div>
+  </div>
+</div>
+
+<div id="legal-screen" class="screen">
+  <nav class="nav">
+    <div class="nav-logo" onclick="go('landing')">Lu<em>mière</em></div>
+    <div class="navlinks"><button class="nl" onclick="go('landing')">← Accueil</button></div>
+  </nav>
+  <div class="lg-wrap">
+    <h1 class="lg-h1">Informations <em>légales</em></h1>
+    <p style="font-size:14px;color:var(--ink4);margin-bottom:28px;font-weight:300">CGU · Mentions légales · RGPD</p>
+    <div class="lg-tabs">
+      <button class="lt on" onclick="swLg('cgv',this)">CGU</button>
+      <button class="lt" onclick="swLg('mentions',this)">Mentions légales</button>
+      <button class="lt" onclick="swLg('rgpd',this)">RGPD</button>
+    </div>
+    <div class="lg-body" id="lgCont"></div>
+  </div>
+</div>
+
+<!-- PROFILE MODAL -->
+<div class="overlay" id="pMod">
+  <div class="modal mxl">
+    <div class="mhd"><div class="mht" id="pmT"></div><button class="mxbtn" onclick="closeOv('pMod')">×</button></div>
+    <div class="mbd" id="pmB"></div>
+  </div>
+</div>
+
+<!-- NEW RDV MODAL -->
+<div class="overlay" id="rdvMod">
+  <div class="modal">
+    <div class="mhd"><div class="mht">Nouveau <em>rendez-vous</em></div><button class="mxbtn" onclick="closeOv('rdvMod')">×</button></div>
+    <div class="mbd">
+      <div class="fg"><label class="fl">Titre *</label><input class="fi" id="rdvTitle" placeholder="Shooting mariage Dupont, Shooting portrait…"/></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div class="fg"><label class="fl">Date *</label><input class="fi" type="date" id="rdvDate"/></div>
+        <div class="fg"><label class="fl">Heure</label><input class="fi" type="time" id="rdvTime" value="10:00"/></div>
+      </div>
+      <div class="fg"><label class="fl">Lieu</label><input class="fi" id="rdvLieu" placeholder="Paris, Lyon, domaine viticole…"/></div>
+      <div class="fg"><label class="fl">Type</label>
+        <div class="chips" style="margin-top:6px">
+          <div class="chip on" id="rdvTypePh" onclick="selectRdvType('ph')">Shooting</div>
+          <div class="chip" id="rdvTypeCl" onclick="selectRdvType('cl')">Collab</div>
+          <div class="chip" id="rdvTypePr" onclick="selectRdvType('pr')">RDV client</div>
+        </div>
+      </div>
+      <div class="fg"><label class="fl">Notes</label><textarea class="fi fta" id="rdvNotes" placeholder="Brief, informations utiles…" style="min-height:60px"></textarea></div>
+      <button class="btn bt" style="width:100%;justify-content:center" onclick="saveRdv()">Ajouter à l'agenda →</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ─── DATA ──────────────────────────────────────────────────────
+const RC={
+  'Photographe':'#8B4F2A',
+  'Vidéaste / Réalisateur':'#2A4A5A','Vidéaste':'#2A4A5A',
+  'Pilote de Drone':'#2A5A5A',
+  'Retoucheur / Post-production':'#4A4A5A','Retoucheur':'#4A4A5A',
+  'Assistant / Digital Tech':'#5A4A3A',
+  'Maquilleur / Maquilleuse':'#7A4A8C','Maquilleuse / Coiffeuse':'#7A4A8C',
+  'Coiffeur / Coiffeuse':'#8C4A7A',
+  'Styliste Photo / Mode':'#8C4A5A','Styliste':'#8C4A5A',
+  'Styliste Culinaire':'#7A5A3A',
+  'Modèle / Mannequin':'#4A5A8C','Modèle':'#4A5A8C',
+  'Wedding Planner':'#4A5A35','Wedding planner':'#4A5A35',
+  'Wedding Designer / Déco':'#5A5A35',
+  'Fleuriste Événementiel':'#3A6A3A','Fleuriste':'#3A6A3A',
+  'Calligraphe / Graphiste':'#5A4A7A',
+  'Officiant de Cérémonie':'#6A5A4A',
+  'Directeur Artistique':'#6A3A6A','Directeur artistique':'#6A3A6A',
+  'Scénographe':'#5A3A6A',
+  'Illustrateur / Live Painting':'#7A5A2A',
+  'Motion Designer':'#3A5A7A',
+  'Créateur de Contenu / SMM':'#5A6A3A',
+  'Musicien / Instrumentiste':'#7A4A3A',
+  'Chanteur / Chorale':'#8A3A5A',
+  'DJ / Sound Designer':'#3A4A6A',
+  'Ingénieur du Son':'#4A5A6A',
+  'Groupe de Musique Live':'#6A3A4A',
+  'Compositeur':'#5A4A6A',
+};
+
+const PROFILES=[
+  {id:1,name:"Sacha Ktorza",role:"Photographe",ville:"Aix-en-Provence",reg:"PACA",pro:true,bio:"Photographe lifestyle basé à Aix. Style lumineux, villages provençaux, mariage et marques locales.",tags:["Lifestyle","Mariage","Provence"],avail:true,collab:true,insta:"instagram.com/sachaktorza",site:"sachaktorza.com",kw:["photographe lifestyle aix","photographe mariage provence","portrait aix-en-provence"],photos:["https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&q=75","https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=75","https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=400&q=75","https://images.unsplash.com/photo-1502764613149-7f1d229e230f?w=400&q=75","https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&q=75","https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=75"]},
+  {id:2,name:"Clara Vidal",role:"Modèle",ville:"Aix-en-Provence",reg:"PACA",pro:false,bio:"Modèle free-lance depuis 2 ans, j'aime les projets éditoriaux lumineux et les ambiances naturelles.",tags:["Portrait","Éditorial","Extérieur"],avail:true,collab:true,insta:"instagram.com/claravidal",site:"",kw:["modèle aix","modèle photo provence"],photos:["https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&q=75","https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&q=75","https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=400&q=75","https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=400&q=75"]},
+  {id:3,name:"Sophie Arnaud",role:"Maquilleuse / Coiffeuse",ville:"Marseille",reg:"PACA",pro:true,bio:"Maquilleuse professionnelle spécialisée mariage et shooting mode. Formée à Paris, installée en Provence.",tags:["Mariage","Mode","Beauté"],avail:true,collab:false,insta:"instagram.com/sophiemua",site:"sophiemua.fr",kw:["maquilleuse mariage marseille","mua provence"],photos:["https://images.unsplash.com/photo-1487412912498-0447578fcca8?w=400&q=75","https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400&q=75"]},
+  {id:4,name:"Léa Moreau",role:"Wedding planner",ville:"Luberon",reg:"PACA",pro:true,bio:"Je crée des mariages intimistes et bohèmes dans les mas provençaux. Réseau solide depuis 8 ans.",tags:["Mariage","Bohème","Mas"],avail:false,collab:false,insta:"instagram.com/leamoreau",site:"leamoreau-events.com",kw:["wedding planner luberon","mariage bohème provence"],photos:["https://images.unsplash.com/photo-1519741497674-611481863552?w=400&q=75","https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&q=75","https://images.unsplash.com/photo-1464699908537-0954e50791ee?w=400&q=75"]},
+  {id:5,name:"Tom Basset",role:"Vidéaste",ville:"Aix-en-Provence",reg:"PACA",pro:false,bio:"Films de mariage cinématographiques et contenus lifestyle pour les marques du Sud.",tags:["Mariage","Cinéma","Lifestyle"],avail:true,collab:true,insta:"instagram.com/tombasset",site:"tombasset.com",kw:["vidéaste mariage aix","film mariage provence"],photos:["https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=400&q=75","https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&q=75"]},
+  {id:6,name:"Julie Benoit",role:"Photographe",ville:"Les Baux-de-Provence",reg:"PACA",pro:true,bio:"Photographe mariage et portrait dans les Alpilles. Style lumineux, documentaire, ancré dans le paysage.",tags:["Mariage","Portrait","Provence"],avail:false,collab:false,insta:"instagram.com/juliebenoit",site:"juliebenoit-photo.fr",kw:["photographe mariage alpilles","portrait provence"],photos:["https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&q=75","https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=400&q=75","https://images.unsplash.com/photo-1502764613149-7f1d229e230f?w=400&q=75","https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&q=75"]},
+  {id:7,name:"Mathilde Rousseau",role:"Photographe",ville:"Paris",reg:"Île-de-France",pro:true,bio:"Photographe de mariage et portrait à Paris. Style documentaire, lumière naturelle, émotions authentiques.",tags:["Mariage","Portrait","Documentaire"],avail:true,collab:false,insta:"instagram.com/mathildephoto",site:"mathilde-photo.fr",kw:["photographe mariage paris","portrait paris","photo documentaire"],photos:["https://images.unsplash.com/photo-1502764613149-7f1d229e230f?w=400&q=75","https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&q=75","https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=400&q=75"]},
+  {id:8,name:"Antoine Mercier",role:"Vidéaste",ville:"Lyon",reg:"Auvergne-Rhône-Alpes",pro:false,bio:"Vidéaste mariage et corporate à Lyon. Films cinématographiques, storytelling authentique.",tags:["Mariage","Corporate","Cinéma"],avail:true,collab:true,insta:"instagram.com/antoinevideo",site:"antoinemercier.fr",kw:["vidéaste mariage lyon","film mariage rhône-alpes"],photos:["https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=400&q=75","https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&q=75"]},
+  {id:9,name:"Camille Durand",role:"Maquilleuse / Coiffeuse",ville:"Paris",reg:"Île-de-France",pro:true,bio:"Maquilleuse et coiffeuse basée à Paris. Mariage, éditorial, défilés. Formée à l'École internationale de coiffure.",tags:["Mariage","Éditorial","Défilé"],avail:true,collab:false,insta:"instagram.com/camillemua",site:"camillemua.com",kw:["maquilleuse mariage paris","mua paris","coiffure mariée"],photos:["https://images.unsplash.com/photo-1487412912498-0447578fcca8?w=400&q=75","https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400&q=75"]},
+  {id:10,name:"Hugo Lefebvre",role:"Photographe",ville:"Bordeaux",reg:"Nouvelle-Aquitaine",pro:false,bio:"Photographe mariage et lifestyle à Bordeaux. Amoureux du vignoble bordelais, de la lumière douce et des moments vrais.",tags:["Mariage","Lifestyle","Vin"],avail:true,collab:true,insta:"instagram.com/hugophoto",site:"hugolefebvre.fr",kw:["photographe mariage bordeaux","lifestyle bordeaux","photo vignoble"],photos:["https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=75","https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=400&q=75","https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&q=75"]},
+  {id:11,name:"Inès Fabre",role:"Styliste",ville:"Arles",reg:"PACA",pro:true,bio:"Créatrice de mode slow basée à Arles. Shooting éditoriaux et pièces uniques pour des projets authentiques.",tags:["Mode","Slow fashion","Éditorial"],avail:true,collab:true,insta:"instagram.com/inesfabre",site:"",kw:["styliste arles","mode provence","slow fashion"],photos:["https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=400&q=75","https://images.unsplash.com/photo-1483985988355-763728e1935b?w=400&q=75"]},
+  {id:12,name:"Élise Martin",role:"Wedding planner",ville:"Paris",reg:"Île-de-France",pro:true,bio:"Wedding planner et décoratrice d'événements à Paris. Mariages sur-mesure, de l'intime au grand événement.",tags:["Mariage","Décoration","Sur-mesure"],avail:true,collab:false,insta:"instagram.com/elise_events",site:"elise-events.fr",kw:["wedding planner paris","organisation mariage île-de-france","décoration mariage"],photos:["https://images.unsplash.com/photo-1519741497674-611481863552?w=400&q=75","https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&q=75"]},
+  {id:13,name:"Nadia Benali",role:"Modèle",ville:"Montpellier",reg:"Occitanie",pro:false,bio:"Modèle basée à Montpellier. Shootings éditoriaux et mode, catalogue et lookbook. Je voyage facilement.",tags:["Éditorial","Lookbook","Mode"],avail:true,collab:true,insta:"instagram.com/nadiamodel",site:"",kw:["modèle montpellier","modèle occitanie","shooting éditorial"],photos:["https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=400&q=75","https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&q=75"]},
+  {id:14,name:"Pierre Gautier",role:"Photographe",ville:"Strasbourg",reg:"Grand Est",pro:false,bio:"Photographe documentaire et portrait à Strasbourg. Je raconte des histoires avec la lumière.",tags:["Portrait","Documentaire","Architecture"],avail:true,collab:true,insta:"instagram.com/pierregautier",site:"pierregautier.com",kw:["photographe portrait strasbourg","photographe documentaire alsace"],photos:["https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&q=75","https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=75"]},
+];
+
+const ARTICLES=[
+  {id:1,title:"Les 10 plus beaux domaines pour se marier en Provence",cat:"Mariage",date:"22 mars 2025",excerpt:"Des Alpilles au Luberon — notre sélection des lieux les plus époustouflants pour un mariage provençal.",img:"https://images.unsplash.com/photo-1519741497674-611481863552?w=700&q=80"},
+  {id:2,title:"5 conseils pour réussir ses photos en lumière naturelle",cat:"Photo",date:"20 mars 2025",excerpt:"La lumière naturelle est la meilleure alliée du photographe. Voici comment l'apprivoiser pour des portraits mémorables.",img:"https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=700&q=80"},
+  {id:3,title:"Portrait : Sacha Ktorza, photographe lifestyle en Provence",cat:"Portrait",date:"18 mars 2025",excerpt:"Rencontre avec Sacha Ktorza, photographe basé à Aix-en-Provence, qui photographie la lumière du Sud avec un œil singulier.",img:"https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=700&q=80"},
+  {id:4,title:"Paris, Lyon, Bordeaux : les villes où se marient les créatifs",cat:"Mariage",date:"15 mars 2025",excerpt:"Au-delà de la Provence, les plus belles destinations mariage en France et les prestataires qui les connaissent mieux que personne.",img:"https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=700&q=80"},
+  {id:5,title:"Adresses secrètes : les villages photo de Provence",cat:"Lieux",date:"10 mars 2025",excerpt:"Gordes, Roussillon, Lourmarin… et des pépites moins connues. Le guide des villages qui font les plus belles photos.",img:"https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=700&q=80"},
+  {id:6,title:"Tendances mariage 2025 : le retour du style naturel",cat:"Mariage",date:"5 mars 2025",excerpt:"Lin, fleurs séchées, lumière dorée — les couples de 2025 reviennent à l'essentiel. Tour d'horizon des tendances.",img:"https://images.unsplash.com/photo-1464699908537-0954e50791ee?w=700&q=80"},
+];
+
+const CONVS=[
+  {id:1,name:"Marie Fontaine",role:"Maquilleuse · Aix",color:"#7A4A8C",preview:"Super ! Je suis dispo le 15",time:"14:32",unread:true,
+    msgs:[{from:'them',text:"Bonjour ! J'ai vu votre profil sur Lumière. Je suis très intéressée par votre travail !",time:"14:10"},{from:'me',text:"Bonjour Marie ! Merci. Vous avez un portfolio à me montrer ?",time:"14:15"},{from:'them',text:"Oui, voilà mon Instagram : @marie.mua.provence",time:"14:20"},{from:'me',text:"Parfait, j'adore votre style. Dispo le 12 avril pour un shooting ?",time:"14:28"},{from:'them',text:"Super ! Je suis dispo le 15",time:"14:32"}]},
+  {id:2,name:"Tom Basset",role:"Vidéaste · Aix",color:"#2A4A5A",preview:"On peut faire quelque chose ensemble",time:"Hier",unread:true,
+    msgs:[{from:'them',text:"Salut ! Je cherche un photographe pour un projet mariage en juillet.",time:"Hier 10h"},{from:'them',text:"On peut faire quelque chose ensemble ?",time:"Hier 11h"}]},
+  {id:3,name:"Léa Moreau",role:"Wedding planner · Luberon",color:"#4A5A35",preview:"J'ai besoin d'un photographe pour juin",time:"Lun.",unread:false,
+    msgs:[{from:'them',text:"Bonjour ! J'ai besoin d'un photographe pour un mariage le 15 juin dans le Luberon.",time:"Lun. 9h"}]},
+];
+
+let RDV=[
+  {id:1,title:"Shooting mariage Dupont",date:"2025-04-12",time:"09:00",lieu:"Alpilles",type:"ph",notes:"Style naturel, lumière dorée"},
+  {id:2,title:"Collab avec Tom Basset",date:"2025-04-18",time:"14:00",lieu:"Aix-en-Provence",type:"cl",notes:"Film + photo, lifestyle marque"},
+  {id:3,title:"RDV découverte — Léa Moreau",date:"2025-05-03",time:"11:00",lieu:"Luberon",type:"pr",notes:"Mariage juin, domaine privé"},
+  {id:4,title:"Shooting portrait",date:"2025-05-15",time:"10:00",lieu:"Marseille",type:"ph",notes:""},
+];
+
+const LEGAL={
+  cgv:`<h2>Conditions Générales d'Utilisation</h2>
+<p><strong>Dernière mise à jour :</strong> 22 mars 2025</p>
+<h3>1. Présentation</h3>
+<p>Lumière est une plateforme de mise en relation entre prestataires créatifs (photographes, wedding planners, maquilleuses, vidéastes, stylistes, modèles) et clients particuliers ou professionnels en France.</p>
+<p>Lumière <strong>ne perçoit aucune commission</strong> sur les transactions entre prestataires et clients. Toute relation commerciale est gérée directement entre les parties.</p>
+<h3>2. Abonnement Pro</h3>
+<p>L'abonnement <strong>Lumière Pro</strong> est proposé au tarif de <span class="hl">3,99€/mois</span>, sans engagement, résiliable à tout moment. Il inclut : badge "Vérifié", référencement prioritaire, accès aux statistiques détaillées et fonctionnalités avancées de l'agenda.</p>
+<h3>3. Responsabilité</h3>
+<p>Lumière agit en qualité d'intermédiaire de mise en relation. La plateforme ne saurait être tenue responsable des relations commerciales entre prestataires et clients, des prestations effectuées, ni des litiges éventuels.</p>
+<h3>4. Contenu des profils</h3>
+<p>Chaque prestataire est responsable du contenu publié sur son profil (photos, textes, informations). Les photos doivent être originales et appartenir au prestataire.</p>
+<h3>5. Messagerie</h3>
+<p>La messagerie est fournie à titre d'outil de mise en relation. Lumière ne lit pas les messages privés et ne saurait être tenu responsable de leur contenu.</p>`,
+  mentions:`<h2>Mentions légales</h2>
+<h3>Éditeur</h3>
+<p>Lumière · France<br>Email : contact@lumiere.fr</p>
+<h3>Hébergement</h3>
+<p>Vercel Inc. · Base de données Supabase (serveurs EU, conforme RGPD).</p>
+<h3>Propriété intellectuelle</h3>
+<p>L'ensemble du contenu de la plateforme (design, code, textes) est protégé. Les photos des prestataires leur appartiennent. Le blog est rédigé et publié exclusivement par l'équipe Lumière.</p>`,
+  rgpd:`<h2>Politique de confidentialité & RGPD</h2>
+<p><strong>Responsable du traitement :</strong> Lumière</p>
+<h3>Données collectées</h3>
+<ul><li>Identification : nom, email</li><li>Profil : photos, bio, ville, région, liens réseaux sociaux</li><li>Agenda : rendez-vous (stockés localement)</li><li>Navigation : analytics anonymisé</li></ul>
+<h3>Finalité</h3>
+<p>Les données sont utilisées pour la mise en relation, la messagerie, l'agenda, et la newsletter (avec consentement explicite, révocable à tout moment).</p>
+<h3>Vos droits</h3>
+<p>Accès, rectification, effacement, portabilité, opposition. Contact : <span style="color:var(--terra)">rgpd@lumiere.fr</span></p>
+<h3>Cookies</h3>
+<p>Uniquement des cookies techniques nécessaires. Aucune publicité, aucun tracker tiers.</p>`
+};
+
+// ─── STATE ─────────────────────────────────────────────────────
+let photos=[],kws=[],activeRole='',selPlanV='free',dirFilt='',curConv=0,collabOn=true;
+let calYear=new Date().getFullYear(),calMonth=new Date().getMonth(),selDay=null,rdvType='ph';
+
+// ─── NAV ────────────────────────────────────────────────────────
+function go(s){
+  document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'));
+  document.getElementById(s).classList.add('active');
+  window.scrollTo(0,0);
+  if(s==='landing'){renderFeat();renderLBlog();renderLandingAnnonces();bindHeroButtons();}
+  if(s==='annuaire'){renderDir(PROFILES);}
+  if(s==='blog-screen'){renderBlog(ARTICLES);}
+  if(s==='inscription'){initReg();}
+  if(s==='dashboard'){renderDash();}
+  if(s==='messages-screen'){renderMsgScr();}
+  if(s==='agenda-screen'){renderCal();renderRdvList(null);}
+  if(s==='edit-profile'){renderEpFeed();}
+  if(s==='annonces-screen'){renderAnnonces(ANNONCES);}
+}
+
+// ─── MARQUEE ────────────────────────────────────────────────────
+const MQI=['Photographes','Vidéastes','Drone','Retoucheurs','Assistants','Maquilleurs','Coiffeurs','Stylistes','Modèles','Wedding Planners','Fleuristes','Calligraphes','Officiants','DA','Scénographes','Illustrateurs','Motion Design','Musiciens','Chanteurs','DJ','Groupes Live','Compositeurs','Paris','Lyon','Bordeaux','Marseille','Provence','Bretagne','Alsace','Mariage','Mode','Éditorial'];
+document.getElementById('mq').innerHTML=[...MQI,...MQI].map(i=>`<span class="mqi">${i}<span class="mqs"></span></span>`).join('');
+
+// ─── LANDING ─────────────────────────────────────────────────────
+function renderFeat(){
+  document.getElementById('featGrid').innerHTML=PROFILES.slice(0,4).map(p=>`
+    <div class="fc" onclick="openP(${p.id})">
+      <div class="fc-cv"><img src="${p.photos[0]||''}" alt="${p.name}" loading="lazy"/></div>
+      <div class="fc-bd">
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px">
+          <div class="fc-role">${p.role}</div>
+          ${p.pro?`<span style="font-size:10px;font-weight:600;padding:2px 7px;background:var(--trbg);color:var(--terra);border:1px solid rgba(139,79,42,.2);border-radius:20px;letter-spacing:.04em;white-space:nowrap">✦ Vérifié</span>`:''}
+        </div>
+        <div class="fc-name">${p.name}</div>
+        <div class="fc-loc">📍 ${p.ville}</div>
+      </div>
+    </div>`).join('');
+}
+function bCard(a){return`<div class="bc" onclick="openArt(${a.id})">
+  <div class="bc-img"><img src="${a.img}" loading="lazy"/></div>
+  <div class="bc-cat">${a.cat}</div>
+  <div class="bc-title">${a.title}</div>
+  <div class="bc-exc">${a.excerpt}</div>
+  <div class="bc-date">${a.date}</div>
+</div>`;}
+function renderLBlog(){const el=document.getElementById('landingBlog');if(el)el.innerHTML=ARTICLES.slice(0,3).map(bCard).join('');}
+
+function renderLandingAnnonces(){
+  const el=document.getElementById('landingAnnonces');if(!el)return;
+  el.innerHTML=ANNONCES.slice(0,3).map(a=>`
+    <div style="background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:18px 20px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;cursor:pointer;transition:border-color .18s" onmouseover="this.style.borderColor='var(--border2)'" onmouseout="this.style.borderColor='var(--border)'" onclick="go('annonces-screen')">
+      <div style="min-width:0">
+        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:5px">
+          <span style="font-family:var(--serif);font-size:16px;font-weight:500;color:var(--ink)">${a.title}</span>
+          <span style="padding:3px 9px;border-radius:20px;font-size:11px;font-weight:600;flex-shrink:0;${a.type==='tfp'?'background:var(--olbg);color:var(--olive)':'background:var(--lavbg);color:var(--lav)'}">${a.type==='tfp'?'TFP':'Rémunéré'}</span>
+        </div>
+        <div style="font-size:12px;color:var(--ink4);display:flex;gap:12px;flex-wrap:wrap">
+          <span>📅 ${a.date.split('-').reverse().join('/')}</span>
+          <span>📍 ${a.ville}</span>
+          <span>Par ${a.poster.name} · ${a.poster.role}</span>
+        </div>
+      </div>
+      <div style="display:flex;gap:5px;flex-wrap:wrap;flex-shrink:0">${a.needs.map(n=>`<span style="padding:3px 9px;background:var(--cr2);border:1px solid var(--border2);border-radius:20px;font-size:11px;color:var(--ink3)">${n}</span>`).join('')}</div>
+    </div>`).join('');
+}
+
+// ─── ANNUAIRE ────────────────────────────────────────────────────
+function pCard(p){return`<div class="pc" onclick="openP(${p.id})">
+  <div class="pc-img">
+    <img src="${p.photos[0]||''}" alt="${p.name}" loading="lazy"/>
+    <div class="pc-badge" style="background:${RC[p.role]||'#888'}">${p.role}</div>
+    <div class="pc-avdot" style="background:${p.avail?'var(--olive)':'var(--terra)'}"></div>
+  </div>
+  <div style="display:flex;align-items:center;gap:6px;margin-bottom:2px">
+    <div class="pc-role" style="margin-bottom:0">${p.role}</div>
+    ${p.pro?`<span style="font-size:10px;font-weight:600;padding:2px 7px;background:var(--trbg);color:var(--terra);border:1px solid rgba(139,79,42,.2);border-radius:20px;letter-spacing:.04em;white-space:nowrap;flex-shrink:0">✦ Vérifié</span>`:''}
+  </div>
+  <div class="pc-name">${p.name}</div>
+  <div class="pc-loc">📍 ${p.ville} · ${p.reg}</div>
+  <div class="pc-bio">${p.bio}</div>
+</div>`;}
+function renderDir(list){
+  document.getElementById('dirCnt').textContent=list.length+' prestataire'+(list.length!==1?'s':'')+' trouvé'+(list.length!==1?'s':'');
+  document.getElementById('dirGrid').innerHTML=list.length?list.map(pCard).join(''):`<div style="grid-column:1/-1;text-align:center;padding:60px 0;color:var(--ink4)"><p style="font-family:var(--serif);font-size:22px;font-weight:500;margin-bottom:8px">Aucun résultat</p><p style="font-size:13px">Modifiez vos filtres</p></div>`;
+}
+function filterDir(){
+  const kw=(document.getElementById('skw').value||'').toLowerCase();
+  const r=document.getElementById('sReg').value;
+  const t=document.getElementById('sType').value;
+  renderDir(PROFILES.filter(p=>{
+    const mk=!kw||(p.name+p.bio+(p.tags||[]).join()+(p.kw||[]).join()+p.ville+p.reg).toLowerCase().includes(kw);
+    return mk&&(!r||p.reg===r)&&(!dirFilt||p.role.includes(dirFilt))&&(!t||(t==='collab'?p.collab:true));
+  }));
+}
+function fMet(m,btn){
+  dirFilt=m;
+  document.querySelectorAll('#dirFilt .chip').forEach(c=>c.classList.remove('on'));
+  btn.classList.add('on');filterDir();
+}
+
+// ─── PROFIL MODAL ─────────────────────────────────────────────
+function openP(id){
+  const p=PROFILES.find(x=>x.id===id);if(!p)return;
+  document.getElementById('pmT').innerHTML=`<em style="font-style:italic;color:var(--terra)">${p.role}</em>`;
+  const feed=(p.photos||[]).map(ph=>`<div class="pm-fi"><img src="${ph}" loading="lazy"/></div>`).join('');
+  const ln=[p.insta?`<a class="pm-lnk" href="https://${p.insta}" target="_blank">📷 ${p.insta.replace('instagram.com/','@')}</a>`:'',p.site?`<a class="pm-lnk" href="https://${p.site}" target="_blank">🌐 ${p.site}</a>`:''].filter(Boolean).join('');
+  document.getElementById('pmB').innerHTML=`
+    <div class="pm-top">
+      <div class="pm-av"><img src="${p.photos[0]||''}" alt="${p.name}"/></div>
+      <div style="flex:1">
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:3px">
+          <div class="pm-name" style="margin-bottom:0">${p.name}</div>
+          ${p.pro?`<span style="font-size:11px;font-weight:600;padding:3px 10px;background:var(--trbg);color:var(--terra);border:1px solid rgba(139,79,42,.2);border-radius:20px;letter-spacing:.04em;white-space:nowrap">✦ Vérifié</span>`:''}
+        </div>
+        <div class="pm-rl">${p.role} · 📍 ${p.ville}, ${p.reg} · ${p.avail?`<span style="color:var(--olive)">● Disponible</span>`:`<span style="color:var(--terra)">Sur demande</span>`} ${p.collab?`· <span style="color:var(--lav)">Collab TFP</span>`:''}</div>
+        <div class="pm-bio">${p.bio}</div>
+        ${ln?`<div class="pm-lrow">${ln}</div>`:''}
+      </div>
+    </div>
+    <div class="pm-stats">
+      <div class="pm-stat"><div class="pm-sn">${p.photos.length}</div><div class="pm-sl">PHOTOS</div></div>
+      <div class="pm-stat"><div class="pm-sn">${p.tags.length}</div><div class="pm-sl">SPÉCIALITÉS</div></div>
+      <div class="pm-stat"><div class="pm-sn">${p.kw.length}</div><div class="pm-sl">MOTS-CLÉS</div></div>
+    </div>
+    ${feed?`<div class="pm-feed">${feed}</div>`:''}
+    <div class="pm-kw">${(p.kw||[]).map(k=>`<span class="tag">${k}</span>`).join('')}</div>
+    <div style="display:flex;gap:10px;margin-top:20px;flex-wrap:wrap">
+      <button class="btn bt" onclick="closeOv('pMod');go('messages-screen')">Envoyer un message</button>
+      <button class="btn bg bxs" onclick="toast2('Sauvegardé en favoris')">♡ Favoris</button>
+    </div>`;
+  document.getElementById('pMod').classList.add('open');
+}
+
+// ─── BLOG ────────────────────────────────────────────────────────
+function renderBlog(list){document.getElementById('blogGrid').innerHTML=list.map(bCard).join('');}
+function fBlog(cat,btn){
+  document.querySelectorAll('#blogCats .chip').forEach(c=>c.classList.remove('on'));btn.classList.add('on');
+  renderBlog(cat?ARTICLES.filter(a=>a.cat===cat):ARTICLES);
+}
+function openArt(id){
+  const a=ARTICLES.find(x=>x.id===id);if(!a)return;
+  document.getElementById('blog-lv').style.display='none';
+  document.getElementById('blog-av').style.display='block';
+  document.getElementById('artCont').innerHTML=`
+    <div class="art-cat">${a.cat}</div>
+    <h1 class="art-title">${a.title}</h1>
+    <div class="art-meta"><span>${a.date}</span><span>Lumière Magazine</span></div>
+    <img class="art-img" src="${a.img}" alt="${a.title}"/>
+    <div class="art-body">
+      <p>${a.excerpt}</p>
+      <h2>Pourquoi choisir Lumière ?</h2>
+      <p>Lumière réunit les meilleurs créatifs de toute la France. Photographes, wedding planners, maquilleuses, vidéastes — chaque profil est soigneusement présenté avec un portfolio, des liens et des mots-clés pour vous aider à trouver le prestataire qui vous correspond vraiment.</p>
+      <h2>Contact direct, sans intermédiaire</h2>
+      <p>Pas de commission, pas de plateforme de paiement interposée. Vous échangez directement avec les prestataires via la messagerie, puis vous vous organisez comme vous le souhaitez. Simple et humain.</p>
+    </div>
+    <div style="margin-top:40px;padding:24px;background:var(--cr2);border:1px solid var(--border);border-radius:var(--r)">
+      <p style="font-family:var(--serif);font-size:18px;font-weight:500;color:var(--ink);margin-bottom:6px">Newsletter Lumière</p>
+      <p style="font-size:13px;color:var(--ink3);margin-bottom:14px;font-weight:300">Chaque semaine, les nouveaux prestataires, portraits créatifs et articles directement dans votre boîte mail.</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <input class="fi" placeholder="votre@email.com" style="flex:1;min-width:180px"/>
+        <button class="btn bt bsm" onclick="toast2('Inscrit à la newsletter ✓')">S'inscrire</button>
+      </div>
+    </div>`;
+  window.scrollTo(0,0);
+}
+function backBlog(){
+  document.getElementById('blog-lv').style.display='block';
+  document.getElementById('blog-av').style.display='none';
+  window.scrollTo(0,0);
+}
+
+// ─── INSCRIPTION ─────────────────────────────────────────────────
+function initReg(){
+  document.getElementById('r1').style.display='block';
+  document.getElementById('r2').style.display='none';
+  document.querySelectorAll('.pseg').forEach((s,i)=>{s.className='pseg'+(i===0?' act':'');});
+  photos=[];kws=[];activeRole='';
+  renderPGrid();renderKwSugg();
+}
+function selRole(el,role){
+  activeRole=role;
+  document.querySelectorAll('.rb').forEach(b=>b.classList.remove('on'));
+  el.classList.add('on');renderKwSugg();
+}
+function r1Next(){
+  if(!document.getElementById('rNm').value.trim()){toast2('Entrez votre nom');return;}
+  if(!activeRole){toast2('Choisissez votre métier');return;}
+  document.getElementById('r1').style.display='none';
+  document.getElementById('r2').style.display='block';
+  document.querySelectorAll('.pseg').forEach((s,i)=>{s.className='pseg'+(i<1?' done':' act');});
+  window.scrollTo(0,0);
+}
+function renderPGrid(){
+  let h='';
+  for(let i=0;i<15;i++){
+    if(i<photos.length)h+=`<div class="ps"><img src="${photos[i]}"/><button class="prm" onclick="rmPh(${i})">×</button></div>`;
+    else h+=`<div class="ps" onclick="document.getElementById('photoIn').click()"><span class="ppl">＋</span></div>`;
+  }
+  document.getElementById('photoGrid').innerHTML=h;
+  document.getElementById('photoCnt').textContent=photos.length+' / 15';
+}
+function handlePhotos(e){[...e.target.files].forEach(f=>{if(photos.length>=15)return;const r=new FileReader();r.onload=ev=>{photos.push(ev.target.result);renderPGrid();};r.readAsDataURL(f);});}
+function rmPh(i){photos.splice(i,1);renderPGrid();}
+const KWS={
+  'Photographe':['photographe mariage','portrait','shooting lifestyle','photo domaine viticole','photographe newborn'],
+  'Vidéaste / Réalisateur':['vidéaste mariage','film mariage','réalisateur clip','vidéo corporate','vidéo lifestyle'],
+  'Pilote de Drone':['drone mariage','prise de vue aérienne','drone cinéma','pilote drone certifié'],
+  'Retoucheur / Post-production':['retouche photo','post-production','colorimétrie','étalonnage','retouche beauté'],
+  'Assistant / Digital Tech':['assistant photo','digital tech','luminiériste','assistant plateau'],
+  'Maquilleur / Maquilleuse':['maquilleuse mariage','mua','maquillage éditorial','maquillage artistique'],
+  'Coiffeur / Coiffeuse':['coiffeur mariage','coiffure mariée','coiffure événementielle','coiffure studio'],
+  'Styliste Photo / Mode':['styliste mode','lookbook','shooting mode','styliste éditorial'],
+  'Styliste Culinaire':['styliste culinaire','food styling','photo culinaire','food photographer'],
+  'Modèle / Mannequin':['modèle photo','mannequin','modèle free-lance','shooting collaboratif'],
+  'Wedding Planner':['wedding planner','organisation mariage','coordinatrice mariage','wedding day coordinator'],
+  'Wedding Designer / Déco':['wedding designer','décoration mariage','scénographie mariage','décorateur événementiel'],
+  'Fleuriste Événementiel':['fleuriste mariage','composition florale','design floral','bouquet mariée'],
+  'Calligraphe / Graphiste':['calligraphe mariage','faire-part mariage','papeterie mariage','graphiste événement'],
+  'Officiant de Cérémonie':['officiant laïque','cérémonie laïque','maître de cérémonie','cérémonie personnalisée'],
+  'Directeur Artistique':['direction artistique','concept shooting','art director','direction de collection'],
+  'Scénographe':['scénographie','décors de plateau','set design','scénographe photo'],
+  'Illustrateur / Live Painting':['live painting','illustrateur mariage','peinture live','aquarelle événement'],
+  'Motion Designer':['motion design','animation vidéo','générique','titrage vidéo'],
+  'Créateur de Contenu / SMM':['créateur de contenu','social media manager','community manager','contenu instagram'],
+  'Musicien / Instrumentiste':['musicien mariage','pianiste événement','violoniste mariage','saxophoniste'],
+  'Chanteur / Chorale':['chanteur mariage','chorale gospel','voix cérémonie','chant lyrique événement'],
+  'DJ / Sound Designer':['dj mariage','animateur soirée','sound design','dj événementiel'],
+  'Ingénieur du Son':['ingénieur du son','mixage audio','prise de son','son vidéo'],
+  'Groupe de Musique Live':['groupe live mariage','groupe jazz événement','live band','musique live soirée'],
+  'Compositeur':['compositeur musique originale','musique de film','bande originale','composition mariage'],
+};
+function renderKwSugg(){const s=(KWS[activeRole]||KWS['Photographe']).map(k=>k+(document.getElementById('rVl')?.value?' '+document.getElementById('rVl').value:''));document.getElementById('kwSugg').innerHTML=s.map(k=>`<div class="chip" onclick="addKwC('${k}',this)">${k}</div>`).join('');}
+function addKwC(kw,el){if(!kws.includes(kw)){kws.push(kw);renderKwList();}el.classList.add('on');}
+function addKw(){const v=document.getElementById('kwIn').value.trim();if(v&&!kws.includes(v)){kws.push(v);renderKwList();}document.getElementById('kwIn').value='';}
+function renderKwList(){document.getElementById('kwList').innerHTML=kws.map((k,i)=>`<div class="kwi">${k}<button onclick="kws.splice(${i},1);renderKwList()">×</button></div>`).join('');}
+function selPlan(p,el){
+  selPlanV=p;
+  document.getElementById('planF').classList.remove('on');
+  document.getElementById('planP').classList.remove('on');
+  el.classList.add('on');
+}
+function finishReg(){
+  const nm=document.getElementById('rNm').value||'Nouveau prestataire';
+  const vl=document.getElementById('rVl').value||'France';
+  const reg=document.getElementById('rReg').value||'France';
+  const bio=document.getElementById('rBio').value||'Prestataire créatif en France.';
+  const insta=document.getElementById('rInsta').value.replace('https://','');
+  const site=document.getElementById('rSite').value.replace('https://','');
+  PROFILES.unshift({id:Date.now(),name:nm,role:activeRole||'Photographe',ville:vl,reg,bio,tags:[activeRole||'Créatif'],avail:true,collab:document.getElementById('cChip').classList.contains('on'),insta,site,kw:kws,photos:photos.length?photos:['https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=75']});
+  document.getElementById('dNm').textContent=nm.split(' ')[0];
+  document.getElementById('dSub').textContent=`${activeRole||'Photographe'} · ${vl} · ${reg}`;
+  document.getElementById('dInfoNm').textContent=nm;
+  document.getElementById('dInfoRl').textContent=activeRole||'Photographe';
+  document.getElementById('planBdg').textContent=selPlanV==='pro'?'Pro ✦':'Gratuit';
+  toast2('Profil publié — bienvenue sur Lumière !');
+  go('dashboard');
+}
+
+// ─── DASHBOARD ───────────────────────────────────────────────────
+function renderDash(){
+  document.getElementById('dMsgs').innerHTML=CONVS.map(c=>`
+    <div class="mr" onclick="go('messages-screen')">
+      <div class="mv" style="background:${c.color}">${c.name[0]}</div>
+      <div style="flex:1;min-width:0">
+        <div style="display:flex;justify-content:space-between">
+          <span style="font-size:13px;font-weight:${c.unread?500:400}">${c.name}</span>
+          <span style="font-size:11px;color:var(--ink4)">${c.time}</span>
+        </div>
+        <div style="font-size:12px;color:var(--ink4);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${c.preview}</div>
+      </div>
+      ${c.unread?`<div style="width:6px;height:6px;border-radius:50%;background:var(--terra);flex-shrink:0"></div>`:''}
+    </div>`).join('');
+  const upcoming=RDV.sort((a,b)=>a.date.localeCompare(b.date)).slice(0,3);
+  const tc={ph:'rdv-ph',cl:'rdv-cl',pr:'rdv-pr'};
+  const tl={ph:'Shooting',cl:'Collab',pr:'RDV client'};
+  document.getElementById('dRdv').innerHTML=upcoming.map(r=>`
+    <div style="padding:10px 0;border-bottom:1px solid var(--border);display:flex;gap:10px;align-items:flex-start">
+      <div style="min-width:44px;text-align:center">
+        <div style="font-family:var(--serif);font-size:18px;font-weight:500;color:var(--terra)">${r.date.split('-')[2]}</div>
+        <div style="font-size:10px;color:var(--ink4)">${['Jan','Fév','Mar','Avr','Mai','Jun','Jul','Aoû','Sep','Oct','Nov','Déc'][parseInt(r.date.split('-')[1])-1]}</div>
+      </div>
+      <div>
+        <div style="font-size:13px;font-weight:500">${r.title}</div>
+        <div style="font-size:11px;color:var(--ink4)">📍 ${r.lieu} · ${r.time}</div>
+        <span class="rdv-type ${tc[r.type]}">${tl[r.type]}</span>
+      </div>
+    </div>`).join('');
+  document.getElementById('ubadge').style.display=CONVS.filter(c=>c.unread).length?'inline':'none';
+}
+function toggleCollab(){
+  collabOn=!collabOn;
+  document.getElementById('tgT').classList.toggle('on',collabOn);
+  document.getElementById('tgL').textContent=`Collab ${collabOn?'activé':'désactivé'}`;
+  toast2(`Mode collab ${collabOn?'activé':'désactivé'}`);
+}
+function addDKw(){
+  const v=document.getElementById('dKwIn').value.trim();if(!v)return;
+  const el=document.createElement('div');el.className='kwi';
+  el.innerHTML=`${v}<button onclick="this.parentNode.remove()">×</button>`;
+  document.getElementById('dKwList').appendChild(el);
+  document.getElementById('dKwIn').value='';toast2('Mot-clé ajouté');
+}
+
+// ─── AGENDA ──────────────────────────────────────────────────────
+const MOIS=['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+function renderCal(){
+  document.getElementById('calMonth').textContent=`${MOIS[calMonth]} ${calYear}`;
+  const firstDay=(new Date(calYear,calMonth,1).getDay()+6)%7;
+  const daysInMonth=new Date(calYear,calMonth+1,0).getDate();
+  const today=new Date();
+  const rdvDates=new Set(RDV.map(r=>{const d=new Date(r.date);return d.getFullYear()===calYear&&d.getMonth()===calMonth?d.getDate():null}).filter(Boolean));
+  let html='';
+  for(let i=0;i<firstDay;i++){
+    const d=new Date(calYear,calMonth,-(firstDay-i-1));
+    html+=`<div class="cal-day other-month" style="grid-column:${i+1}"><div class="cal-day-n">${d.getDate()}</div></div>`;
+  }
+  for(let d=1;d<=daysInMonth;d++){
+    const isToday=d===today.getDate()&&calMonth===today.getMonth()&&calYear===today.getFullYear();
+    const hasRdv=rdvDates.has(d);
+    const isSel=selDay===d;
+    html+=`<div class="cal-day ${isToday?'today':''} ${hasRdv?'has-rdv':''} ${isSel?'selected':''}" onclick="selectDay(${d})">
+      <div class="cal-day-n">${d}</div>
+      ${hasRdv?'<div class="cal-rdv-dot"></div>':''}
+    </div>`;
+  }
+  document.getElementById('calDays').innerHTML=html;
+}
+function selectDay(d){
+  selDay=d;renderCal();
+  const date=`${calYear}-${String(calMonth+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+  const dayRdv=RDV.filter(r=>r.date===date);
+  const label=`${d} ${MOIS[calMonth]}`;
+  document.getElementById('rdvPanelTitle').textContent=dayRdv.length?`${label} (${dayRdv.length} rdv)`:`${label}`;
+  renderRdvList(date);
+}
+function renderRdvList(filterDate){
+  const list=filterDate?RDV.filter(r=>r.date===filterDate):RDV.sort((a,b)=>a.date.localeCompare(b.date));
+  const tc={ph:'rdv-ph',cl:'rdv-cl',pr:'rdv-pr'};
+  const tl={ph:'Shooting',cl:'Collab',pr:'RDV client'};
+  document.getElementById('rdvList').innerHTML=list.length?list.map(r=>`
+    <div class="rdv-item">
+      <div class="rdv-time">${r.time}</div>
+      <div>
+        <div class="rdv-title">${r.title}</div>
+        <div class="rdv-sub">📍 ${r.lieu} · ${r.date.split('-').reverse().join('/')}</div>
+        ${r.notes?`<div class="rdv-sub" style="font-style:italic;margin-top:2px">${r.notes}</div>`:''}
+        <span class="rdv-type ${tc[r.type]}">${tl[r.type]}</span>
+      </div>
+    </div>`).join('')
+    :`<div style="padding:20px;text-align:center;color:var(--ink4);font-size:13px">Aucun rendez-vous</div>`;
+}
+function prevMonth(){calMonth--;if(calMonth<0){calMonth=11;calYear--;}selDay=null;renderCal();renderRdvList(null);}
+function nextMonth(){calMonth++;if(calMonth>11){calMonth=0;calYear++;}selDay=null;renderCal();renderRdvList(null);}
+function openNewRdv(){
+  document.getElementById('rdvDate').valueAsDate=selDay?new Date(calYear,calMonth,selDay):new Date();
+  document.getElementById('rdvTitle').value='';
+  document.getElementById('rdvLieu').value='';
+  document.getElementById('rdvNotes').value='';
+  rdvType='ph';
+  document.querySelectorAll('#rdvTypePh,#rdvTypeCl,#rdvTypePr').forEach(c=>c.classList.remove('on'));
+  document.getElementById('rdvTypePh').classList.add('on');
+  document.getElementById('rdvMod').classList.add('open');
+}
+function selectRdvType(t){
+  rdvType=t;
+  document.querySelectorAll('#rdvTypePh,#rdvTypeCl,#rdvTypePr').forEach(c=>c.classList.remove('on'));
+  document.getElementById(`rdvType${t.charAt(0).toUpperCase()+t.slice(1)}`).classList.add('on');
+}
+function saveRdv(){
+  const title=document.getElementById('rdvTitle').value.trim();
+  if(!title){toast2('Ajoutez un titre');return;}
+  const date=document.getElementById('rdvDate').value;
+  const time=document.getElementById('rdvTime').value;
+  const lieu=document.getElementById('rdvLieu').value||'À définir';
+  const notes=document.getElementById('rdvNotes').value;
+  RDV.push({id:Date.now(),title,date,time,lieu,type:rdvType,notes});
+  closeOv('rdvMod');
+  renderCal();
+  renderRdvList(selDay?`${calYear}-${String(calMonth+1).padStart(2,'0')}-${String(selDay).padStart(2,'0')}`:null);
+  toast2('Rendez-vous ajouté à l\'agenda');
+}
+
+// ─── MESSAGERIE ──────────────────────────────────────────────────
+function renderMsgScr(){
+  document.getElementById('convList').innerHTML=CONVS.map((c,i)=>`
+    <div class="ci ${i===curConv?'on':''}" onclick="renderChat(${i})">
+      <div class="ci-av" style="background:${c.color}">${c.name[0]}</div>
+      <div style="flex:1;min-width:0">
+        <div class="ci-name">${c.name}</div>
+        <div class="ci-prev">${c.preview}</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px">
+        <span style="font-size:11px;color:var(--ink4)">${c.time}</span>
+        ${c.unread?`<div style="width:6px;height:6px;border-radius:50%;background:var(--terra)"></div>`:''}
+      </div>
+    </div>`).join('');
+  renderChat(curConv);
+}
+function renderChat(idx){
+  curConv=idx;const c=CONVS[idx];
+  document.getElementById('chatHd').innerHTML=`
+    <div class="ci-av" style="background:${c.color};flex-shrink:0">${c.name[0]}</div>
+    <div><div class="chat-name">${c.name}</div><div class="chat-role">${c.role}</div></div>`;
+  const box=document.getElementById('chatMsgs');
+  box.innerHTML=c.msgs.map(m=>`
+    <div class="cmssg ${m.from}">
+      <div class="cm-b">${m.text}</div>
+      <div class="cm-time">${m.time}</div>
+    </div>`).join('');
+  box.scrollTop=box.scrollHeight;
+  document.querySelectorAll('.ci').forEach((el,i)=>el.classList.toggle('on',i===idx));
+}
+function sendMsg(){
+  const inp=document.getElementById('chatInp');
+  const txt=inp.value.trim();if(!txt)return;
+  const c=CONVS[curConv];
+  c.msgs.push({from:'me',text:txt,time:new Date().toLocaleTimeString('fr',{hour:'2-digit',minute:'2-digit'})});
+  c.preview=txt;inp.value='';
+  const box=document.getElementById('chatMsgs');
+  box.innerHTML+=`<div class="cmssg me"><div class="cm-b">${txt}</div><div class="cm-time">${new Date().toLocaleTimeString('fr',{hour:'2-digit',minute:'2-digit'})}</div></div>`;
+  box.scrollTop=box.scrollHeight;
+  setTimeout(()=>{
+    const t=document.createElement('div');t.className='cmssg them';
+    t.innerHTML='<div class="typing"><div class="td"></div><div class="td"></div><div class="td"></div></div>';
+    box.appendChild(t);box.scrollTop=box.scrollHeight;
+    setTimeout(async()=>{
+      box.removeChild(t);
+      const r=await getAIR(txt,c.name,c.role);
+      c.msgs.push({from:'them',text:r,time:new Date().toLocaleTimeString('fr',{hour:'2-digit',minute:'2-digit'})});
+      c.preview=r.substring(0,40)+'…';
+      box.innerHTML+=`<div class="cmssg them"><div class="cm-b">${r}</div><div class="cm-time">${new Date().toLocaleTimeString('fr',{hour:'2-digit',minute:'2-digit'})}</div></div>`;
+      box.scrollTop=box.scrollHeight;
+    },1800);
+  },700);
+}
+function handleEnter(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendMsg();}}
+async function getAIR(msg,name,role){
+  try{
+    const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
+      model:'claude-sonnet-4-20250514',max_tokens:100,
+      system:`Tu es ${name}, ${role} en France, sur la plateforme Lumière. Réponds naturellement en français, 1-2 phrases courtes, dans le contexte d'une collaboration créative.`,
+      messages:[{role:'user',content:msg}]
+    })});
+    const d=await res.json();return d.content?.[0]?.text||'Avec plaisir, parlons-en !';
+  }catch{return 'Bonne idée ! On peut en discuter quand vous voulez.';}
+}
+async function aiSuggest(){
+  const c=CONVS[curConv];const last=c.msgs[c.msgs.length-1];
+  const inp=document.getElementById('chatInp');inp.value='…';inp.disabled=true;
+  try{
+    const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
+      model:'claude-sonnet-4-20250514',max_tokens:90,
+      system:`Tu es un créatif en France sur Lumière. Rédige une réponse courte (1-2 phrases) en français pour répondre à ${c.name}. Pas de guillemets.`,
+      messages:[{role:'user',content:`Dernier message: "${last?.text||'Bonjour'}" — Propose une réponse.`}]
+    })});
+    const d=await res.json();inp.value=d.content?.[0]?.text||'';
+  }catch{inp.value='';}
+  inp.disabled=false;inp.focus();
+}
+
+// ─── LÉGALES ────────────────────────────────────────────────────
+function showLegal(tab){
+  go('legal-screen');
+  setTimeout(()=>{
+    const i={cgv:0,mentions:1,rgpd:2}[tab]||0;
+    document.querySelectorAll('.lt').forEach((t,j)=>t.classList.toggle('on',j===i));
+    document.getElementById('lgCont').innerHTML=LEGAL[tab]||LEGAL.cgv;
+  },50);
+}
+function swLg(tab,btn){
+  document.querySelectorAll('.lt').forEach(t=>t.classList.remove('on'));
+  btn.classList.add('on');
+  document.getElementById('lgCont').innerHTML=LEGAL[tab]||'';
+}
+
+// ─── UTILS ──────────────────────────────────────────────────────
+function closeOv(id){document.getElementById(id).classList.remove('open');}
+document.querySelectorAll('.overlay').forEach(o=>o.addEventListener('click',e=>{if(e.target===o)o.classList.remove('open');}));
+function toast2(msg){
+  const t=document.getElementById('toast');t.textContent=msg;
+  t.classList.add('on');clearTimeout(t._t);
+  t._t=setTimeout(()=>t.classList.remove('on'),3200);
+}
+
+// ─── EDIT PROFILE ────────────────────────────────────────────────
+let epPhotos = [
+  'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&q=75',
+  'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=75',
+  'https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=400&q=75',
+  'https://images.unsplash.com/photo-1502764613149-7f1d229e230f?w=400&q=75',
+];
+
+function renderEpFeed() {
+  const grid = document.getElementById('epFeedGrid');
+  const empty = document.getElementById('epFeedEmpty');
+  const cnt = document.getElementById('epPhotoCnt');
+  cnt.textContent = epPhotos.length + ' / 15 photos';
+  if (!epPhotos.length) {
+    grid.style.display = 'none';
+    empty.style.display = 'block';
+    return;
+  }
+  grid.style.display = 'grid';
+  empty.style.display = 'none';
+  grid.innerHTML = epPhotos.map((ph, i) => `
+    <div style="position:relative;aspect-ratio:1;border-radius:10px;overflow:hidden;background:var(--cr3);${i===0?'outline:2px solid var(--terra);outline-offset:2px':''}">
+      <img src="${ph}" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      ${i===0 ? `<div style="position:absolute;bottom:4px;left:4px;background:var(--terra);color:#fff;font-size:9px;font-weight:600;padding:2px 7px;border-radius:20px;letter-spacing:.04em">COUVERTURE</div>` : ''}
+      <button onclick="removeEpPhoto(${i})" style="position:absolute;top:5px;right:5px;width:22px;height:22px;background:rgba(42,37,32,.75);border:none;border-radius:50%;color:#fff;font-size:12px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1">×</button>
+      ${i > 0 ? `<button onclick="moveEpPhoto(${i},-1)" style="position:absolute;bottom:5px;left:4px;width:22px;height:22px;background:rgba(42,37,32,.75);border:none;border-radius:50%;color:#fff;font-size:11px;cursor:pointer;display:flex;align-items:center;justify-content:center">‹</button>` : ''}
+      ${i < epPhotos.length-1 ? `<button onclick="moveEpPhoto(${i},1)" style="position:absolute;bottom:5px;right:4px;width:22px;height:22px;background:rgba(42,37,32,.75);border:none;border-radius:50%;color:#fff;font-size:11px;cursor:pointer;display:flex;align-items:center;justify-content:center">›</button>` : ''}
+    </div>`).join('');
+}
+
+function removeEpPhoto(i) {
+  epPhotos.splice(i, 1);
+  renderEpFeed();
+}
+
+function moveEpPhoto(i, dir) {
+  const j = i + dir;
+  if (j < 0 || j >= epPhotos.length) return;
+  [epPhotos[i], epPhotos[j]] = [epPhotos[j], epPhotos[i]];
+  renderEpFeed();
+}
+
+function handleEpPhotos(e) {
+  [...e.target.files].forEach(f => {
+    if (epPhotos.length >= 15) return;
+    const r = new FileReader();
+    r.onload = ev => { epPhotos.push(ev.target.result); renderEpFeed(); };
+    r.readAsDataURL(f);
+  });
+}
+
+function addEpKw() {
+  const v = document.getElementById('epKwIn').value.trim();
+  if (!v) return;
+  const el = document.createElement('div');
+  el.className = 'kwi';
+  el.innerHTML = `${v}<button onclick="this.parentNode.remove()">×</button>`;
+  document.getElementById('epKwList').appendChild(el);
+  document.getElementById('epKwIn').value = '';
+}
+
+function saveProfile() {
+  const nm = document.getElementById('epNm').value || 'Sacha Ktorza';
+  const role = document.getElementById('epRole').value;
+  const ville = document.getElementById('epVille').value;
+  const reg = document.getElementById('epReg').value;
+  // Update dashboard display
+  document.getElementById('dNm').textContent = nm.split(' ')[0];
+  document.getElementById('dSub').textContent = `${role} · ${ville} · ${reg}`;
+  document.getElementById('dInfoNm').textContent = nm;
+  document.getElementById('dInfoRl').textContent = role;
+  // Update profile in PROFILES array (id=1 = Sacha)
+  const p = PROFILES.find(x => x.id === 1);
+  if (p) {
+    p.name = nm; p.role = role; p.ville = ville; p.reg = reg;
+    p.bio = document.getElementById('epBio').value;
+    p.insta = document.getElementById('epInsta').value.replace('https://','');
+    p.site = document.getElementById('epSite').value.replace('https://','');
+    p.photos = epPhotos.length ? [...epPhotos] : p.photos;
+  }
+  toast2('Profil mis à jour ✓');
+  go('dashboard');
+}
+
+// ─── HERO BUTTONS via addEventListener ───────────────────────────
+function bindHeroButtons() {
+  const a = document.getElementById('btnAnnuaire');
+  const b = document.getElementById('btnInscription');
+  if(a && !a._bound) { a.addEventListener('click', ()=>go('annuaire')); a._bound=true; }
+  if(b && !b._bound) { b.addEventListener('click', ()=>go('inscription')); b._bound=true; }
+}
+bindHeroButtons();
+document.addEventListener('DOMContentLoaded', bindHeroButtons);
+
+// ─── ANNONCES ────────────────────────────────────────────────────
+let ANNONCES = [
+  {id:1,title:"Shooting éditorial — style naturel & lumière fenêtre",date:"2025-04-15",ville:"Paris 11e",desc:"Je cherche une modèle et une maquilleuse pour un shooting lifestyle en appartement haussmannien. Style épuré, lumière naturelle, ambiance cosy. Photos partagées équitablement.",needs:["Modèle","Maquilleuse"],type:"tfp",poster:{name:"Mathilde R.",role:"Photographe",color:"#8B4F2A"},createdAt:"Il y a 2h"},
+  {id:2,title:"Mariage bohème en Provence · Juin 2025 · Photographe",date:"2025-06-14",ville:"Luberon",desc:"Wedding planner cherche photographe pour un mariage intimiste de 60 personnes dans un mas du Luberon. Style documentaire, lumière dorée, ambiance végétale. Prestation rémunérée.",needs:["Photographe"],type:"paid",poster:{name:"Léa M.",role:"Wedding planner",color:"#4A5A35"},createdAt:"Il y a 5h"},
+  {id:3,title:"Lookbook été — marque slow fashion",date:"2025-05-08",ville:"Arles",desc:"Créatrice de mode cherche photographe et vidéaste pour le lookbook été de sa collection capsule. 2 jours de shooting entre Arles et la Camargue. Rémunéré.",needs:["Photographe","Vidéaste"],type:"paid",poster:{name:"Inès F.",role:"Styliste",color:"#8C4A5A"},createdAt:"Il y a 1j"},
+  {id:4,title:"Portrait professionnel · Collab · Paris",date:"2025-04-22",ville:"Paris",desc:"Modèle débutante cherche photographe pour construire son book. Échange de bons procédés — vous utilisez les photos pour votre portfolio, je les utilise pour mon book.",needs:["Photographe"],type:"tfp",poster:{name:"Camille D.",role:"Modèle",color:"#7A4A8C"},createdAt:"Il y a 2j"},
+  {id:5,title:"Shooting vin & terroir — Domaine du Luberon",date:"2025-05-20",ville:"Luberon",desc:"Domaine viticole cherche photographe lifestyle pour un shooting de ses bouteilles et vignes. Style lumineux, terroir provençal, utilisation web et réseaux sociaux.",needs:["Photographe"],type:"paid",poster:{name:"Hugo L.",role:"Photographe",color:"#8B4F2A"},createdAt:"Il y a 3j"},
+];
+let annType = 'tfp';
+
+function renderAnnonces(list) {
+  const l = list !== undefined ? list : ANNONCES;
+  document.getElementById('annList').innerHTML = l.length ? l.map(a=>`
+    <div style="background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:22px;transition:border-color .18s" onmouseover="this.style.borderColor='var(--border2)'" onmouseout="this.style.borderColor='var(--border)'">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px">
+        <div>
+          <h3 style="font-family:var(--serif);font-size:20px;font-weight:500;color:var(--ink);letter-spacing:-.01em;margin-bottom:5px">${a.title}</h3>
+          <div style="display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--ink4)">
+            <span>📅 ${a.date.split('-').reverse().join('/')}</span>
+            <span>📍 ${a.ville}</span>
+            <span>${a.createdAt}</span>
+          </div>
+        </div>
+        <span style="padding:4px 11px;border-radius:20px;font-size:11px;font-weight:600;flex-shrink:0;white-space:nowrap;${a.type==='tfp'?'background:var(--olbg);color:var(--olive)':'background:var(--lavbg);color:var(--lav)'}">${a.type==='tfp'?'Collab TFP':'Rémunéré'}</span>
+      </div>
+      <p style="font-size:13px;color:var(--ink3);line-height:1.65;margin-bottom:14px;font-weight:300">${a.desc}</p>
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">
+        <div style="display:flex;gap:6px;flex-wrap:wrap">${a.needs.map(n=>`<span style="padding:4px 11px;background:var(--cr2);border:1px solid var(--border2);border-radius:20px;font-size:12px;color:var(--ink3)">${n}</span>`).join('')}</div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <div style="display:flex;align-items:center;gap:8px">
+            <div style="width:30px;height:30px;border-radius:50%;background:${a.poster.color};display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;font-weight:600;flex-shrink:0">${a.poster.name[0]}</div>
+            <div><div style="font-size:13px;font-weight:500;color:var(--ink)">${a.poster.name}</div><div style="font-size:11px;color:var(--ink4)">${a.poster.role}</div></div>
+          </div>
+          <button class="btn bt bsm" onclick="go('messages-screen')">Répondre →</button>
+        </div>
+      </div>
+    </div>`).join('')
+  : `<div style="text-align:center;padding:60px 0;color:var(--ink4)"><p style="font-family:var(--serif);font-size:22px;font-weight:500;margin-bottom:8px">Aucune annonce</p><p style="font-size:13px">Modifiez vos filtres</p></div>`;
+}
+
+function fAnn(f, btn) {
+  document.querySelectorAll('#annFilt .chip').forEach(c=>c.classList.remove('on'));
+  btn.classList.add('on');
+  let list = ANNONCES;
+  if(f==='tfp') list = ANNONCES.filter(a=>a.type==='tfp');
+  else if(f==='paid') list = ANNONCES.filter(a=>a.type==='paid');
+  else if(f) list = ANNONCES.filter(a=>a.poster.role.includes(f)||a.needs.join().includes(f));
+  renderAnnonces(list);
+}
+
+function openNewAnnonce() {
+  document.getElementById('annDate').valueAsDate = new Date();
+  document.getElementById('annTitle').value='';
+  document.getElementById('annVille').value='';
+  document.getElementById('annDesc').value='';
+  document.querySelectorAll('#annNeeds .chip').forEach(c=>c.classList.remove('on'));
+  document.getElementById('annTFP').classList.add('on');
+  document.getElementById('annPaid').classList.remove('on');
+  document.getElementById('annonceMod').classList.add('open');
+}
+
+function selectAnnType(t) {
+  annType=t;
+  document.getElementById('annTFP').classList.toggle('on',t==='tfp');
+  document.getElementById('annPaid').classList.toggle('on',t==='paid');
+}
+
+function submitAnnonce() {
+  const title=document.getElementById('annTitle').value.trim();
+  if(!title){toast2('Ajoutez un titre');return;}
+  const needs=[...document.querySelectorAll('#annNeeds .chip.on')].map(c=>c.textContent);
+  ANNONCES.unshift({id:Date.now(),title,date:document.getElementById('annDate').value,ville:document.getElementById('annVille').value||'France',desc:document.getElementById('annDesc').value||'Projet collaboratif.',needs:needs.length?needs:['Créatif'],type:annType,poster:{name:'Sacha K.',role:'Photographe',color:'#8B4F2A'},createdAt:"À l'instant"});
+  closeOv('annonceMod');
+  renderAnnonces(ANNONCES);
+  toast2('Annonce publiée ✓');
+}
+
+// ─── EXPOSE go on window so sandbox iframe can call it
+window.go = go;
+
+// ─── INIT ───────────────────────────────────────────────────────
+renderFeat();
+renderLBlog();
+renderLandingAnnonces();
+document.getElementById('lgCont').innerHTML = LEGAL.cgv;
+renderEpFeed();
+</script>
+</body>
+</html>
